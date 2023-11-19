@@ -10,6 +10,7 @@
 `define WITHDRAW              3'b100
 `define WITHDRAW_SHOW_BALANCE 3'b101
 `define TRANSACTION           3'b110
+`define DEPOSIT               3'b111
 
 
 module authentication(
@@ -123,7 +124,7 @@ module ATM(
   always @(posedge clk or isAuthenticated or menuOption or exit) begin
     
     //restart the error
-	error = `false;
+	  error = `false;
     if(exit == `true) begin
       //transition to the waiting state
       currState = `WAITING;
@@ -206,6 +207,24 @@ module ATM(
             currState = `MENU;
             error = `true;
         end
+      end
+
+      `DEPOSIT: begin : Deposit
+        wire choice = 1'b1;
+        $display("The deposited amount is %d", amount);
+        $display("Are you sure you want to deposit this amount? T/F")
+        case (choice)
+        begin
+          1'b1: begin
+            balance_database[accIndex] = balance_database[accIndex] + amount;
+            $display("Account %d has balance %d after depositing %d", accNumber, balance_database[accIndex], amount);
+          end
+          default:begin 
+            balance_database[accIndex] = balance_database[accIndex];
+            $display("Operation cancelled. Your balance is %d",balance_database[accIndex]);
+          end
+        end
+        endcase
       end
 
     endcase 
