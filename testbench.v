@@ -1,4 +1,4 @@
-`timescale 1ns/1ns
+// `timescale 1ns/1ns
 `define true 1'b1
 `define false 1'b0
 
