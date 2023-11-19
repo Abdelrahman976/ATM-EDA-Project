@@ -4,12 +4,13 @@
 `define FIND 1'b0
 `define AUTHENTICATE 1'b1
 
-`define WAITING               3'b000
-`define MENU                  3'b010
-`define BALANCE               3'b011
-`define WITHDRAW              3'b100
-`define WITHDRAW_SHOW_BALANCE 3'b101
-`define TRANSACTION           3'b110
+`define WAITING               4'b0000
+`define MENU                  4'b0010
+`define BALANCE               4'b0011
+`define WITHDRAW              4'b0100
+`define WITHDRAW_SHOW_BALANCE 4'b0101
+`define TRANSACTION           4'b0110
+`define DEPOSIT               4'b0111
 
 
 module authentication(
@@ -134,13 +135,13 @@ module ATM(
 
   end
   
-  reg [2:0] currState = `WAITING;
+  reg [3:0] currState = `WAITING;
   
   wire [3:0] accIndex;
   wire [3:0] destinationAccIndex;
   wire isAuthenticated;
   wire wasFound;
-  
+  reg choice=1'b1;
   reg deAuth = `false;
 
   authentication authAccNumberModule(accNumber, pin, `AUTHENTICATE, deAuth, isAuthenticated, accIndex);
@@ -150,7 +151,7 @@ module ATM(
   always @(posedge clk or isAuthenticated or menuOption or exit) begin
     
     //restart the error
-	error = `false;
+	  error = `false;
     if(exit == `true) begin
       //transition to the waiting state
       currState = `WAITING;
@@ -265,8 +266,30 @@ module ATM(
         end
       end
 
-    endcase 
-		
+      `DEPOSIT: begin : Deposit
+        if((amount < 2048) && (balance_database[accIndex] + amount < 65535) )begin
+              $display("The deposited amount is %d", amount);
+              $display("Are you sure you want to deposit this amount? T/F");
+              error = `false;
+              case (choice)
+                  1'b1: begin
+                    balance_database[accIndex] = balance_database[accIndex] + amount;
+                    balance = balance_database[accIndex];
+                    $display("Account %d has balance %d after depositing %d", accNumber, balance_database[accIndex], amount);
+                  end
+                  default:begin 
+                    balance_database[accIndex] = balance_database[accIndex];
+                    balance = balance_database[accIndex];
+                    $display("Operation cancelled. Your balance is %d",balance_database[accIndex]);
+                  end
+              endcase
+            end
+            else begin
+              currState = `MENU;
+              error = `true;
+            end
+        end
+   endcase 
 
   end
 

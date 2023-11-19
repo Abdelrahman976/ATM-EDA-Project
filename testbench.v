@@ -5,14 +5,16 @@
 `define FIND 1'b0
 `define AUTHENTICATE 1'b1
 
-`define WAITING               3'b000
-`define GET_PIN               3'b001
-`define MENU                  3'b010
-`define BALANCE               3'b011
-`define WITHDRAW              3'b100
-`define WITHDRAW_SHOW_BALANCE 3'b101
-`define TRANSACTION           3'b110
-`define DONE                  3'b111
+`define WAITING               4'b0000
+`define GET_PIN               4'b0001
+`define MENU                  4'b0010
+`define BALANCE               4'b0011
+`define WITHDRAW              4'b0100
+`define WITHDRAW_SHOW_BALANCE 4'b0101
+`define TRANSACTION           4'b0110
+`define DEPOSIT               4'b0111
+`define DONE                  4'b1000
+
 
 module atm_tb();
   
@@ -88,9 +90,17 @@ module atm_tb();
 	menuOption = `TRANSACTION;
     clk = ~clk;#5clk = ~clk;
     #30
-    
-
-    //exit the system
+    //Deposit some money to the account
+      amount=500;
+      menuOption=`DEPOSIT;
+      clk = ~clk;#5clk = ~clk;
+      #30
+    //Deposit too much money to the account which exceeds 2047 and cuases an error
+      amount=2550;
+      menuOption=`DEPOSIT;
+      clk = ~clk;#5clk = ~clk;
+      #30
+    //exit the system 
     exit = 1;
     #30
     exit = 0;
