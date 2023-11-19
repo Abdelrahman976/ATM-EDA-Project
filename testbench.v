@@ -1,10 +1,4 @@
-//Developed by Arash Sal Moslehian
-// @ArashSM79
-// run it online
-// https://www.edaplayground.com/x/4Wkq
-
-// FSM diagram
-// https://app.creately.com/diagram/RHnw6gupn9B/view
+`timescale 1ns/1ns
 `define true 1'b1
 `define false 1'b0
 
