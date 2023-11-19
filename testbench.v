@@ -24,10 +24,11 @@ module atm_tb();
   reg [11:0] destinationAccNumber;
   reg [2:0] menuOption;
   reg [10:0] amount;
+  integer depAmount;
   wire error;
   wire [10:0] balance;
   
-  ATM atmModule(clk, exit, 0, accNumber, pin, destinationAccNumber, menuOption, amount, error, balance);
+  ATM atmModule(clk, exit, 0, accNumber, pin, destinationAccNumber, menuOption, amount, depAmount, error, balance);
   
   
   initial begin
@@ -56,23 +57,23 @@ module atm_tb();
     
     //withdraw some money and then show the balance
     amount = 100;
-	menuOption = `WITHDRAW_SHOW_BALANCE;
+	  menuOption = `WITHDRAW_SHOW_BALANCE;
     clk = ~clk;#5clk = ~clk;
     #30
 
     //show the balance
-	menuOption = `BALANCE;
+	  menuOption = `BALANCE;
     clk = ~clk;#5clk = ~clk;
     #30
     
     //withdraw too much money, resulting in an error
     amount = 2500;
-	menuOption = `WITHDRAW;
+	  menuOption = `WITHDRAW;
     clk = ~clk;#5clk = ~clk;
     #30
 
     //the balance wont change because an error happened during withdrawal
-	menuOption = `BALANCE;
+	  menuOption = `BALANCE;
     clk = ~clk;#5clk = ~clk;
     #30
 
@@ -80,23 +81,31 @@ module atm_tb();
     //transfer some money to the destination account with number 2816
     amount = 50;
     destinationAccNumber = 2816;
-	menuOption = `TRANSACTION;
+	  menuOption = `TRANSACTION;
     clk = ~clk;#5clk = ~clk;
     #30
 
     //transfer too much money to the destination account with number 2816 which exceeds 2047 and cuases an error
     amount = 2550;
     destinationAccNumber = 2816;
-	menuOption = `TRANSACTION;
+	  menuOption = `TRANSACTION;
     clk = ~clk;#5clk = ~clk;
     #30
     //Deposit some money to the account
+      depAmount=500;
       amount=500;
       menuOption=`DEPOSIT;
       clk = ~clk;#5clk = ~clk;
       #30
     //Deposit too much money to the account which exceeds 2047 and cuases an error
+      depAmount=2550;
       amount=2550;
+      menuOption=`DEPOSIT;
+      clk = ~clk;#5clk = ~clk;
+      #30
+      //Deposit too much money to the account which exceeds 65535 and cuases an error
+      depAmount=65535;
+      amount=65535;
       menuOption=`DEPOSIT;
       clk = ~clk;#5clk = ~clk;
       #30

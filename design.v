@@ -112,8 +112,9 @@ module ATM(
   input [11:0] accNumber,
   input [3:0] pin,
   input [11:0] destinationAcc, 
-  input [2:0]menuOption,
-  input [10:0] amount, 
+  input [2:0] menuOption,
+  input [10:0] amount,
+  input integer depAmount, 
   output reg error,
   output reg [10:0] balance
   );
@@ -136,7 +137,6 @@ module ATM(
   end
   
   reg [3:0] currState = `WAITING;
-  
   wire [3:0] accIndex;
   wire [3:0] destinationAccIndex;
   wire isAuthenticated;
@@ -267,7 +267,7 @@ module ATM(
       end
 
       `DEPOSIT: begin : Deposit
-        if((amount < 2048) && (balance_database[accIndex] + amount < 65535) )begin
+        if( (depAmount==amount) & (balance_database[accIndex] + amount < 65535) )begin
               $display("The deposited amount is %d", amount);
               $display("Are you sure you want to deposit this amount? T/F");
               error = `false;
