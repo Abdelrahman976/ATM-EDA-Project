@@ -77,34 +77,6 @@ endmodule
 
 //
 
-module timer(clk, rst, en, timer_out);
-  input clk, rst, en;
-  output reg timer_out;
-  reg [31:0] count;
-
-  // This always block triggers on the positive edge of clk or rst
-  always @(posedge clk or posedge rst)
-  begin
-    if (rst)  // If reset is active
-    begin
-      count <= 0;  // Reset the count to 0
-    end
-    else if (en)  // If the enable signal is active
-      count <= count + 1;  // Increment the count
-  end
-
-  // This always block triggers on the positive edge of clk only
-  always @(posedge clk)
-  begin
-    if (rst)  // If reset is active
-      timer_out <= 0;  // Set timer_out to 0
-    else if (en && (count == 6000000000))  // If enable signal is active and count reaches 60000000000 (60 Seconds)
-      timer_out <= 1;  // Set timer_out to 1
-    else
-      timer_out <= 0;  // Otherwise, keep timer_out at 0
-  end
-endmodule
-
 module ATM(
   input clk,
   input exit,
@@ -118,6 +90,7 @@ module ATM(
   output reg error,
   output reg [10:0] balance
   );
+
 
   //initializing the balance database with an arbitrary amount of money
   reg [15:0] balance_database [0:9];
@@ -160,9 +133,7 @@ module ATM(
       #20;      
     end
     
-    reg timedOut, reset = 1, enable = 1;
     if(currState == `MENU) begin
-      timer t1(clk, reset, enable, timedOut);
       //set the selected option as the current state
       if((menuOption >= 0) & (menuOption <= 7))begin 
         currState = menuOption;
@@ -189,24 +160,13 @@ module ATM(
 
 
       `BALANCE: begin
-        if (timedOut)begin
-          $display("You Have Been Idle For 1 Minute\nGoing Back To Enter Your Pin Code Again...");
-          #5 currState = `WAITING; deAuth = `false;
-        end
-        else begin
-          balance = balance_database[accIndex];
-          $display("Account %d has balance %d", accNumber, balance_database[accIndex]);
-          currState = `MENU;
-        end
+        balance = balance_database[accIndex];
+        $display("Account %d has balance %d", accNumber, balance_database[accIndex]);
+        currState = `MENU;
       end
 
 
       `WITHDRAW: begin
-        if (timedOut)begin
-            $display("You Have Been Idle For 1 Minute\nGoing Back To Enter Your Pin Code Again...");
-            #5 currState = `WAITING; deAuth = `false;
-          end
-        else begin
           if (amount <= balance_database[accIndex]) begin
             balance_database[accIndex] = balance_database[accIndex] - amount;
             balance = balance_database[accIndex];
@@ -217,18 +177,10 @@ module ATM(
             currState = `MENU;
             error = `true;
           end
-        end
       end
 
 
       `WITHDRAW_SHOW_BALANCE: begin
-        if (timedOut)
-          begin
-            $display("You Have Been Idle For 1 Minute\nGoing Back To Enter Your Pin Code Again...");
-            #5 currState = `WAITING; deAuth = `false;
-          end
-        else 
-          begin
           if (amount <= balance_database[accIndex]) begin
             balance_database[accIndex] = balance_database[accIndex] - amount;
             balance = balance_database[accIndex];
@@ -240,29 +192,20 @@ module ATM(
             currState = `MENU;
             error = `true;
           end
-        end
       end
 
 
       `TRANSACTION: begin
-        if (timedOut)
-          begin
-            $display("You Have Been Idle For 1 Minute\nGoing Back To Enter Your Pin Code Again...");
-            #5 currState = `WAITING; deAuth = `false;
-          end
-        else
-          begin
-          if ((amount <= balance_database[accIndex]) & (wasFound == `true) & (balance_database[accIndex] + amount < 2048)) begin
-              currState = `MENU;
-              error = `false;
-              balance_database[destinationAccIndex] = balance_database[destinationAccIndex] + amount;
-              balance_database[accIndex] = balance_database[accIndex] - amount;
-              $display("Destination account %d after transaction has a total balance of %d", destinationAcc, balance_database[destinationAccIndex]);
-          end
-          else begin
-              currState = `MENU;
-              error = `true;
-          end
+        if ((amount <= balance_database[accIndex]) & (wasFound == `true) & (balance_database[accIndex] + amount < 2048)) begin
+            currState = `MENU;
+            error = `false;
+            balance_database[destinationAccIndex] = balance_database[destinationAccIndex] + amount;
+            balance_database[accIndex] = balance_database[accIndex] - amount;
+            $display("Destination account %d after transaction has a total balance of %d", destinationAcc, balance_database[destinationAccIndex]);
+        end
+        else begin
+            currState = `MENU;
+            error = `true;
         end
       end
 
