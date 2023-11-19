@@ -210,17 +210,19 @@ module ATM(
       end
 
       `DEPOSIT: begin : Deposit
-        if(amount < 2048 & balance_database[accIndex] + amount < 65535 )begin
+        if((amount < 2048) && (balance_database[accIndex] + amount < 65535) )begin
               $display("The deposited amount is %d", amount);
               $display("Are you sure you want to deposit this amount? T/F");
               error = `false;
               case (choice)
                   1'b1: begin
                     balance_database[accIndex] = balance_database[accIndex] + amount;
+                    balance = balance_database[accIndex];
                     $display("Account %d has balance %d after depositing %d", accNumber, balance_database[accIndex], amount);
                   end
                   default:begin 
                     balance_database[accIndex] = balance_database[accIndex];
+                    balance = balance_database[accIndex];
                     $display("Operation cancelled. Your balance is %d",balance_database[accIndex]);
                   end
               endcase

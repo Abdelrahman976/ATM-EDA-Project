@@ -97,12 +97,12 @@ module atm_tb();
     clk = ~clk;#5clk = ~clk;
     #30
     //Deposit some money to the account
-      amount=11'd500;
+      amount=500;
       menuOption=`DEPOSIT;
       clk = ~clk;#5clk = ~clk;
       #30
     //Deposit too much money to the account which exceeds 2047 and cuases an error
-      amount=11'd2550;
+      amount=2550;
       menuOption=`DEPOSIT;
       clk = ~clk;#5clk = ~clk;
       #30
