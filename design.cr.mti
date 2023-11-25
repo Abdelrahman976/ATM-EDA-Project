@@ -1,0 +1,16 @@
+{C:/Users/liona/Documents/VS Code/EDA Project/design.v} {1 {vlog -work work -vopt -stats=none {C:/Users/liona/Documents/VS Code/EDA Project/design.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module authentication
+-- Compiling module ATM
+
+Top level modules:
+	ATM
+
+} {} {}} {C:/Users/liona/Documents/VS Code/EDA Project/testbench.v} {1 {vlog -work work -vopt -stats=none {C:/Users/liona/Documents/VS Code/EDA Project/testbench.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module atm_tb
+
+Top level modules:
+	atm_tb
+
+} {} {}}

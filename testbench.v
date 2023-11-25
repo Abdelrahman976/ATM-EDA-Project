@@ -59,7 +59,7 @@ module atm_tb();
     amount = 100;
 	  menuOption = `WITHDRAW_SHOW_BALANCE;
     clk = ~clk;#5clk = ~clk;
-    #30
+    #1000 // Testing Time Limit Reached
 
     //show the balance
 	  menuOption = `BALANCE;
@@ -75,7 +75,7 @@ module atm_tb();
     //the balance wont change because an error happened during withdrawal
 	  menuOption = `BALANCE;
     clk = ~clk;#5clk = ~clk;
-    #30
+    #1000 // Testing Time Limit Reached
 
 
     //transfer some money to the destination account with number 2816
@@ -85,7 +85,7 @@ module atm_tb();
     clk = ~clk;#5clk = ~clk;
     #30
 
-    //transfer too much money to the destination account with number 2816 which exceeds 2047 and cuases an error
+    //transfer too much money to the destination account with number 2816 which exceeds 2047 and causes an error
     amount = 2550;
     destinationAccNumber = 2816;
 	  menuOption = `TRANSACTION;
@@ -97,13 +97,13 @@ module atm_tb();
       menuOption=`DEPOSIT;
       clk = ~clk;#5clk = ~clk;
       #30
-    //Deposit too much money to the account which exceeds 2047 and cuases an error
+    //Deposit too much money to the account which exceeds 2047 and causes an error
       depAmount=2550;
       amount=2550;
       menuOption=`DEPOSIT;
       clk = ~clk;#5clk = ~clk;
       #30
-      //Deposit too much money to the account which exceeds 65535 and cuases an error
+      //Deposit too much money to the account which exceeds 65535 and causes an error
       depAmount=65535;
       amount=65535;
       menuOption=`DEPOSIT;
