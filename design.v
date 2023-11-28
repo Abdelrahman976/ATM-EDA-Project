@@ -1,8 +1,11 @@
+`timescale 1ns/1ns
 `define true 1'b1
 `define false 1'b0
 
 `define FIND 1'b0
 `define AUTHENTICATE 1'b1
+
+`define lang 1'b0
 
 `define WAITING               4'b0000
 `define MENU                  4'b0010
@@ -95,7 +98,12 @@ module ATM(
   //initializing the balance database with an arbitrary amount of money
   reg [15:0] balance_database [0:9];
   initial begin
-    $display("Welcome to the ATM");
+    if( lang == 1'b1 )begin
+      $display("أهلاً بك في جهاز الصراف الآلي");
+    end
+    else  begin
+      $display("Welcome to the ATM");
+    end
      balance_database[0] = 16'd500;
      balance_database[1] = 16'd500;
      balance_database[2] = 16'd500;
@@ -152,10 +160,20 @@ module ATM(
       `WAITING: begin
         if (isAuthenticated == `true) begin
           currState = `MENU;
-          $display("Logged In.");
+          if( lang == 1'b1 )begin
+            $display(" تم نسجيل الدخول");
+          end
+          else  begin
+            $display("Logged In.");
+          end
         end
-        else if(isAuthenticated == `false) begin
-          $display("Account number or password was incorrect");
+        else if(isAuthenticated == `false ) begin
+          if( lang ) begin
+            $display(" رقم الحساب او كلمه المرور خطأ");
+          end
+          else begin
+          	$display("Account number or password was incorrect");
+          end
           currState = `WAITING;
         end
       end
@@ -165,12 +183,22 @@ module ATM(
           if(($time - timer) <= timeLimit || timer == 0)
             begin
               balance = balance_database[accIndex];
-              $display("Account %d has balance %d", accNumber, balance_database[accIndex]);
+              if( lang ) begin
+                $display(" الحساب %d به رصيد %d ", accNumber, balance_database[accIndex] ); 
+              end
+              else begin
+                $display("Account %d has balance %d", accNumber, balance_database[accIndex]);
+              end
               currState = `MENU;
             end
           else
             begin
-              $display("Timeout limit exceeded. Please try again later");
+              if( lang ) begin
+                $display("تم تجاوز حد الوقت المسموح به. يرجى المحاولة مرة أخرى لاحقًا"); 
+              end
+              else begin
+                $display("Timeout limit exceeded. Please try again later");
+              end
               currState = `MENU;
               error = `false;
             end
@@ -194,7 +222,12 @@ module ATM(
           end
         else
           begin
-            $display("Timeout limit exceeded. Please try again later");
+            if( lang ) begin
+              $display("تم تجاوز حد الوقت المسموح به. يرجى المحاولة مرة أخرى لاحقًا"); 
+            end
+            else begin
+              $display("Timeout limit exceeded. Please try again later");
+            end
             currState = `MENU;
             error = `false;
           end
@@ -210,7 +243,12 @@ module ATM(
               balance = balance_database[accIndex];
               currState = `MENU;
               error = `false;
-              $display("Account %d has balance %d after withdrawing %d", accNumber, balance_database[accIndex], amount);
+              if( lang ) begin
+              $display("الحساب رقم %d لديه رصيد %d بعد سحب مبلغ %d", accNumber, balance_database[accIndex], amount);
+              end
+              else begin
+                $display("Account %d has balance %d after withdrawing %d", accNumber, balance_database[accIndex], amount);
+              end
             end
             else begin
               currState = `MENU;
@@ -219,7 +257,12 @@ module ATM(
           end
         else
           begin
-            $display("Timeout limit exceeded. Please try again later");
+            if( lang ) begin
+              $display("تم تجاوز حد الوقت المسموح به. يرجى المحاولة مرة أخرى لاحقًا"); 
+            end
+            else begin
+              $display("Timeout limit exceeded. Please try again later");
+            end
             currState = `MENU;
             error = `false;
           end
@@ -236,6 +279,12 @@ module ATM(
                 balance_database[destinationAccIndex] = balance_database[destinationAccIndex] + amount;
                 balance_database[accIndex] = balance_database[accIndex] - amount;
                 $display("Destination account %d after transaction has a total balance of %d", destinationAcc, balance_database[destinationAccIndex]);
+                if( lang ) begin
+                  $display("الحساب المستلم رقم %d بعد العملية لديه رصيد إجمالي قدره %d", destinationAcc, balance_database[destinationAccIndex]); 
+                end
+                else begin
+                  $display("Destination account %d after transaction has a total balance of %d", destinationAcc, balance_database[destinationAccIndex]);
+                end
             end
             else begin
                 currState = `MENU;
@@ -244,7 +293,12 @@ module ATM(
           end
         else
           begin
-            $display("Timeout limit exceeded. Please try again later");
+            if( lang ) begin
+              $display("تم تجاوز حد الوقت المسموح به. يرجى المحاولة مرة أخرى لاحقًا"); 
+            end
+            else begin
+              $display("Timeout limit exceeded. Please try again later");
+            end
             currState = `MENU;
             error = `false;
           end
@@ -257,19 +311,32 @@ module ATM(
             begin
               if((depAmount==amount) && (balance_database[accIndex] + amount < 65535))
                 begin
-                  $display("The deposited amount is %d", amount);
-                  $display("Are you sure you want to deposit this amount? T/F");
+                  if( lang ) begin
+                    $display("المبلغ المودع هو %d", amount);
+                    $display("هل أنت متأكد من رغبتك في إيداع هذا المبلغ؟ نعم/لا");                  end
+                  else begin
+                    $display("The deposited amount is %d", amount);
+                    $display("Are you sure you want to deposit this amount? T/F");
+                  end
                   error = `false;
                   case (choice)
                       1'b1: begin
                         balance_database[accIndex] = balance_database[accIndex] + amount;
                         balance = balance_database[accIndex];
-                        $display("Account %d has balance %d after depositing %d", accNumber, balance_database[accIndex], amount);
+                        if( lang ) begin
+                          $display("الحساب %d لديه رصيد %d بعد إيداع مبلغ %d", accNumber, balance_database[accIndex], amount);                  end
+                        else begin
+                          $display("Account %d has balance %d after depositing %d", accNumber, balance_database[accIndex], amount);
+                        end
                       end
                       default:begin 
                         balance_database[accIndex] = balance_database[accIndex];
                         balance = balance_database[accIndex];
-                        $display("Operation cancelled. Your balance is %d",balance_database[accIndex]);
+                        if( lang ) begin
+                          $display("تم إلغاء العملية. رصيدك هو %d", balance_database[accIndex]);                 end
+                        else begin
+                          $display("Operation cancelled. Your balance is %d",balance_database[accIndex]);
+                        end
                       end
                   endcase
                 end
@@ -280,7 +347,12 @@ module ATM(
             end
           else
             begin
-              $display("Timeout limit exceeded. Please try again later");
+              if( lang ) begin
+                $display("تم تجاوز حد الوقت المسموح به. يرجى المحاولة مرة أخرى لاحقًا"); 
+              end
+              else begin
+                $display("Timeout limit exceeded. Please try again later");
+              end
               currState = `MENU;
               error = `false;
             end

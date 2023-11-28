@@ -1,9 +1,12 @@
-// `timescale 1ns/1ns
+`timescale 1ns/1ns
 `define true 1'b1
 `define false 1'b0
 
 `define FIND 1'b0
 `define AUTHENTICATE 1'b1
+
+`define arabic 1'b1
+`define english 1'b0
 
 `define WAITING               4'b0000
 `define GET_PIN               4'b0001
@@ -27,12 +30,13 @@ module atm_tb();
   integer depAmount;
   wire error;
   wire [10:0] balance;
-  
-  ATM atmModule(clk, exit, 0, accNumber, pin, destinationAccNumber, menuOption, amount, depAmount, error, balance);
-  
-  
+  reg lang;
+
+  ATM atmModule(clk, exit, lang, accNumber, pin, destinationAccNumber, menuOption, amount, depAmount, error, balance);
+
   initial begin
     clk = 1'b0;
+    lang = `english;
   end
   
    always @(error) begin
