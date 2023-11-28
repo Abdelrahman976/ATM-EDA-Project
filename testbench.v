@@ -1,15 +1,12 @@
-//Developed by Arash Sal Moslehian
-// @ArashSM79
-// run it online
-// https://www.edaplayground.com/x/4Wkq
-
-// FSM diagram
-// https://app.creately.com/diagram/RHnw6gupn9B/view
+`timescale 1ns/1ns
 `define true 1'b1
 `define false 1'b0
 
 `define FIND 1'b0
 `define AUTHENTICATE 1'b1
+
+`define arabic 1'b1
+`define english 1'b0
 
 `define WAITING               4'b0000
 `define GET_PIN               4'b0001
@@ -30,14 +27,16 @@ module atm_tb();
   reg [11:0] destinationAccNumber;
   reg [2:0] menuOption;
   reg [10:0] amount;
+  integer depAmount;
   wire error;
   wire [10:0] balance;
-  
-  ATM atmModule(clk, exit, 0, accNumber, pin, destinationAccNumber, menuOption, amount, error, balance);
-  
-  
+  reg lang;
+
+  ATM atmModule(clk, exit, lang, accNumber, pin, destinationAccNumber, menuOption, amount, depAmount, error, balance);
+
   initial begin
     clk = 1'b0;
+    lang = `english;
   end
   
    always @(error) begin
@@ -62,47 +61,55 @@ module atm_tb();
     
     //withdraw some money and then show the balance
     amount = 100;
-	menuOption = `WITHDRAW_SHOW_BALANCE;
+	  menuOption = `WITHDRAW_SHOW_BALANCE;
     clk = ~clk;#5clk = ~clk;
-    #30
+    #1000 // Testing Time Limit Reached
 
     //show the balance
-	menuOption = `BALANCE;
+	  menuOption = `BALANCE;
     clk = ~clk;#5clk = ~clk;
     #30
     
     //withdraw too much money, resulting in an error
     amount = 2500;
-	menuOption = `WITHDRAW;
+	  menuOption = `WITHDRAW;
     clk = ~clk;#5clk = ~clk;
     #30
 
     //the balance wont change because an error happened during withdrawal
-	menuOption = `BALANCE;
+	  menuOption = `BALANCE;
     clk = ~clk;#5clk = ~clk;
-    #30
+    #1000 // Testing Time Limit Reached
 
 
     //transfer some money to the destination account with number 2816
     amount = 50;
     destinationAccNumber = 2816;
-	menuOption = `TRANSACTION;
+	  menuOption = `TRANSACTION;
     clk = ~clk;#5clk = ~clk;
     #30
 
-    //transfer too much money to the destination account with number 2816 which exceeds 2047 and cuases an error
+    //transfer too much money to the destination account with number 2816 which exceeds 2047 and causes an error
     amount = 2550;
     destinationAccNumber = 2816;
-	menuOption = `TRANSACTION;
+	  menuOption = `TRANSACTION;
     clk = ~clk;#5clk = ~clk;
     #30
     //Deposit some money to the account
+      depAmount=500;
       amount=500;
       menuOption=`DEPOSIT;
       clk = ~clk;#5clk = ~clk;
       #30
-    //Deposit too much money to the account which exceeds 2047 and cuases an error
+    //Deposit too much money to the account which exceeds 2047 and causes an error
+      depAmount=2550;
       amount=2550;
+      menuOption=`DEPOSIT;
+      clk = ~clk;#5clk = ~clk;
+      #30
+      //Deposit too much money to the account which exceeds 65535 and causes an error
+      depAmount=65535;
+      amount=65535;
       menuOption=`DEPOSIT;
       clk = ~clk;#5clk = ~clk;
       #30
