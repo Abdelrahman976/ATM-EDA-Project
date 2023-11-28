@@ -1,4 +1,4 @@
-`define true 1'b1
+=`define true 1'b1
 `define false 1'b0
 
 `define FIND 1'b0
@@ -210,7 +210,7 @@ module ATM(
       end
 
       `DEPOSIT: begin : Deposit
-        if((amount < 2048) && (balance_database[accIndex] + amount < 65535) )begin
+        if((amount < 2048) & (balance_database[accIndex] + amount < 2048) )begin
               $display("The deposited amount is %d", amount);
               $display("Are you sure you want to deposit this amount? T/F");
               error = `false;
