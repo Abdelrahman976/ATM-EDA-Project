@@ -8,15 +8,13 @@
 `define arabic 1'b1
 `define english 1'b0
 
-`define WAITING               4'b0000
-`define GET_PIN               4'b0001
-`define MENU                  4'b0010
-`define BALANCE               4'b0011
-`define WITHDRAW              4'b0100
-`define WITHDRAW_SHOW_BALANCE 4'b0101
-`define TRANSACTION           4'b0110
-`define DEPOSIT               4'b0111
-`define DONE                  4'b1000
+`define WAITING               3'b000
+`define MENU                  3'b010
+`define BALANCE               3'b011
+`define WITHDRAW              3'b100
+`define WITHDRAW_SHOW_BALANCE 3'b101
+`define TRANSACTION           3'b110
+`define DEPOSIT               3'b111
 
 
 module atm_tb();
@@ -31,6 +29,7 @@ module atm_tb();
   wire error;
   wire [10:0] balance;
   reg lang;
+  integer i;
 
   ATM atmModule(clk, exit, lang, accNumber, pin, destinationAccNumber, menuOption, amount, depAmount, error, balance);
 
@@ -45,90 +44,34 @@ module atm_tb();
    end
   
   initial begin
-	
-
-    //incorrect PIN
-    accNumber = 12'd2278;
-    pin = 4'b0100;
+    clk=0;
+    forever begin
+      #5 clk=~clk;
+    end
+  end
+  initial begin
     
-    #30
-
-    //valid credentials
     accNumber = 12'd2178;
     pin = 4'b0100;
-    
-    #30
-    
-    //withdraw some money and then show the balance
-    amount = 100;
-	  menuOption = `WITHDRAW_SHOW_BALANCE;
-    clk = ~clk;#5clk = ~clk;
-    #1000 // Testing Time Limit Reached
-
-    //show the balance
-	  menuOption = `BALANCE;
-    clk = ~clk;#5clk = ~clk;
-    #30
-    
-    //withdraw too much money, resulting in an error
-    amount = 2500;
-	  menuOption = `WITHDRAW;
-    clk = ~clk;#5clk = ~clk;
-    #30
-
-    //the balance wont change because an error happened during withdrawal
-	  menuOption = `BALANCE;
-    clk = ~clk;#5clk = ~clk;
-    #1000 // Testing Time Limit Reached
-
-
-    //transfer some money to the destination account with number 2816
-    amount = 50;
-    destinationAccNumber = 2816;
-	  menuOption = `TRANSACTION;
-    clk = ~clk;#5clk = ~clk;
-    #30
-
-    //transfer too much money to the destination account with number 2816 which exceeds 2047 and causes an error
-    amount = 2550;
-    destinationAccNumber = 2816;
-	  menuOption = `TRANSACTION;
-    clk = ~clk;#5clk = ~clk;
-    #30
-    //Deposit some money to the account
-      depAmount=500;
-      amount=500;
-      menuOption=`DEPOSIT;
-      clk = ~clk;#5clk = ~clk;
-      #30
-    //Deposit too much money to the account which exceeds 2047 and causes an error
-      depAmount=2550;
-      amount=2550;
-      menuOption=`DEPOSIT;
-      clk = ~clk;#5clk = ~clk;
-      #30
-      //Deposit too much money to the account which exceeds 65535 and causes an error
-      depAmount=65535;
-      amount=65535;
-      menuOption=`DEPOSIT;
-      clk = ~clk;#5clk = ~clk;
-      #30
-    //exit the system 
-    exit = 1;
-    #30
-    exit = 0;
-    #30
-    
-    //log in using the account with number 2816
-    accNumber = 12'd2816;
-    pin = 4'b0110;
-    #30
-
-    //you'll see that the balance is more than the default value because we had trasnsferred some money to this account a while ago
-    menuOption = `BALANCE;
-    clk = ~clk;#5clk = ~clk;
-    #30;
-    
-  end
-  
+    $display("------------------------------------------------------------------------------------");
+    @(negedge clk);
+     for(i=0;i<5;i=i+1)begin
+        amount = $random();
+        depAmount = amount;
+        menuOption = $random();
+        destinationAccNumber = 12'd2429;
+        $display("Your Menu Option is: %d", menuOption);
+        $display("Your Amount is: %d", amount);
+        #5;
+        $display("Your Balance is: %d", balance);
+        $display("------------------------------------------------------------------------------------");
+        @(posedge clk);
+     end
+    $stop();
+   end
+  //psl Deposit_Check: assert always((menuOption==`DEPOSIT && error == 1'b0)->next(balance==( prev(balance) + prev(amount) ) ) ) @(posedge clk);
+  //psl Withdraw_Check: assert always((menuOption==`WITHDRAW && error == 1'b0)->next(balance==(prev(balance)-prev(amount)))) @(posedge clk);
+  //psl Withdraw_Show_Balance_Check: assert always((menuOption==`WITHDRAW_SHOW_BALANCE && error == 1'b0)->next(balance==(prev(balance)-prev(amount)))) @(posedge clk);
+  //psl Balance_Check: assert always((menuOption==`BALANCE && error == 1'b0)->next(balance==prev(balance))) @(posedge clk);
+  //psl Transaction_Check: assert always((menuOption==`TRANSACTION && error == 1'b0)->next(balance==prev(balance)-prev(amount))) @(posedge clk);
 endmodule
