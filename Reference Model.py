@@ -35,24 +35,24 @@ LANGUAGES = {
 
 
 class ATM:
-    def __init__(self, balance=0, lang='en'):
+    def __init__(self, balance=500, lang='en'):
         print(LANGUAGES[lang]['welcome'])
         self.balance = balance
         self.users = {
-            '2749': {'pin': 0, 'balance': 0},
-            '2175': {'pin': 1, 'balance': 0},
-            '2429': {'pin': 2, 'balance': 0},
-            '2125': {'pin': 3, 'balance': 0},
-            '2178': {'pin': 4, 'balance': 0},
-            '2647': {'pin': 5, 'balance': 0},
-            '2816': {'pin': 6, 'balance': 0},
-            '2910': {'pin': 7, 'balance': 0},
-            '2299': {'pin': 8, 'balance': 0},
-            '2689': {'pin': 9, 'balance': 0}
+            '2749': {'pin': 0, 'balance': 500},
+            '2175': {'pin': 1, 'balance': 500},
+            '2429': {'pin': 2, 'balance': 500},
+            '2125': {'pin': 3, 'balance': 500},
+            '2178': {'pin': 4, 'balance': 500},
+            '2647': {'pin': 5, 'balance': 500},
+            '2816': {'pin': 6, 'balance': 500},
+            '2910': {'pin': 7, 'balance': 500},
+            '2299': {'pin': 8, 'balance': 500},
+            '2689': {'pin': 9, 'balance': 500}
         }
         self.current_user = None
         self.lang = lang
-        self.idle_timeout = 60 # 1 minute
+        self.idle_timeout = 8  # 8 Seconds
         self.last_activity_time = time.time()
 
     def is_authentic(self, accountNum, pin):
@@ -116,6 +116,7 @@ def main():
     atm = ATM()
     lang = int(input("Please Choose Your Language: (English: 0), (اللغة العربية: 1): "))
     if lang == 0:
+        atm.lang = 'en'
         while True:
             print("\n==== ATM Menu ====")
             print("1. Login")
@@ -179,6 +180,7 @@ def main():
                 case _:
                     print("Invalid choice. Please enter a number between 1 and 9.")
     elif lang == 1:
+        atm.lang = 'ar'
         while True:
             print("\n==== قائمة اختيارات الصرف الالي ====")
             print("1. تسجيل الدخول")
