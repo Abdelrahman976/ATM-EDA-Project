@@ -5,7 +5,8 @@
 `define FIND 1'b0
 `define AUTHENTICATE 1'b1
 
-`define lang 1'b0
+`define arabic 1'b1
+`define english 1'b0
 
 `define WAITING               3'b000
 `define MENU                  3'b010
@@ -78,7 +79,6 @@ module authentication(
 
 endmodule
 
-//
 
 module ATM(
   input clk,
@@ -122,7 +122,6 @@ module ATM(
   wire [3:0] destinationAccIndex;
   wire isAuthenticated;
   wire wasFound;
-  reg choice=1'b1;
   reg deAuth = `false;
   time timer = 0;
   time timeLimit = 100; // 1000 ns
@@ -133,29 +132,36 @@ module ATM(
   authentication findAccNumberModule(destinationAcc, 0, `FIND, deAuth, wasFound, destinationAccIndex);
 
   // Timer Counter
-   always @(posedge clk or menuOption)begin
+   always @(posedge clk)begin
      if (counter <= timeLimit)begin
        counter <= counter + 1;
        logout = `false;
      end
-     else
-       begin
-         if( lang ) begin
-           $display("تم تجاوز حد الوقت المسموح به. يرجى المحاولة مرة أخرى لاحقًا"); 
-         end
-         else begin
-           $display("Timeout limit exceeded. Please try again later");
-         end
-         counter = 0;
-         currState = `WAITING;
-         deAuth = `true;
-         logout = `true;
-       end
+     else begin
+        if( lang == `arabic ) begin
+          $display("تم تجاوز حد الوقت المسموح به. يرجى المحاولة مرة أخرى لاحقًا"); 
+        end
+        else begin
+          $display("Timeout limit exceeded. Please try again later");
+        end
+        currState = `WAITING;
+        deAuth = `true;
+        logout = `true;
+      end
    end
 
-  //main block of module with asynchronous exit
-  always @(posedge clk or isAuthenticated or menuOption or exit) begin
-    
+   always @(menuOption) begin
+      counter = 0;
+      balance = balance_database[accIndex];
+      if((menuOption >= 0) & (menuOption <= 7))begin
+        currState = menuOption;
+      end else
+        currState = menuOption;
+      if(logout == `true)
+        currState = `WAITING;
+   end
+
+   always @(isAuthenticated or exit) begin
     //restart the error
 	  error = `false;
     if(exit == `true || logout == `true) begin
@@ -163,29 +169,22 @@ module ATM(
       currState = `WAITING;
       //deathenticate the current user
       deAuth = `true;
-      #20;      
+      #20;
     end
-    
-  
-    if(currState == `MENU) begin
-      if((menuOption >= 0) & (menuOption <= 7))begin 
-        counter = 0;
-        currState = menuOption;
-      end else
-        currState = menuOption;
-      if(logout == `true)
-        currState = `WAITING;
-    end
-    
+   end
+
+  //main block of module with asynchronous exit
+  always @(posedge clk) begin
 
     //switch case for the menu options
     //the rest is pretty straight forward
+    currState = menuOption;
       case (currState)
 
       `WAITING: begin
         if (isAuthenticated == `true && logout == `false) begin
           currState = `MENU;
-          if( lang == 1'b1 ) begin
+          if( lang == `arabic ) begin
             $display(" تم نسجيل الدخول");
           end
           else begin
@@ -193,7 +192,7 @@ module ATM(
           end
         end
         else if(isAuthenticated == `false || logout == `true) begin
-          if( lang ) begin
+          if( lang == `arabic ) begin
             if (logout == `true)
               $display("تم تسجيل الخروج");
             else
@@ -212,7 +211,7 @@ module ATM(
 
       `BALANCE: begin
             balance = balance_database[accIndex];
-            if( lang ) begin
+            if( lang == `arabic ) begin
               $display(" الحساب %d به رصيد %d ", accNumber, balance_database[accIndex] ); 
             end
             else begin
@@ -237,22 +236,20 @@ module ATM(
 
 
       `WITHDRAW_SHOW_BALANCE: begin
-          if (amount <= balance_database[accIndex]) begin
-            balance_database[accIndex] = balance_database[accIndex] - amount;
-            balance = balance_database[accIndex];
-            currState = `MENU;
-            error = `false;
-            if( lang ) begin
-            $display("الحساب رقم %d لديه رصيد %d بعد سحب مبلغ %d", accNumber, balance_database[accIndex], amount);
+            if (amount <= balance_database[accIndex]) begin
+              balance_database[accIndex] = balance_database[accIndex] - amount;
+              balance = balance_database[accIndex];
+              currState = `MENU;
+              error = `false;
+              if( lang == `arabic )
+                $display("الحساب رقم %d لديه رصيد %d بعد سحب مبلغ %d", accNumber, balance_database[accIndex], amount);
+              else
+                $display("Account %d has balance %d after withdrawing %d", accNumber, balance_database[accIndex], amount);
             end
             else begin
-              $display("Account %d has balance %d after withdrawing %d", accNumber, balance_database[accIndex], amount);
+              currState = `MENU;
+              error = `true;
             end
-          end
-          else begin
-            currState = `MENU;
-            error = `true;
-          end
       end
 
 
@@ -263,12 +260,10 @@ module ATM(
               balance_database[destinationAccIndex] = balance_database[destinationAccIndex] + amount;
               balance_database[accIndex] = balance_database[accIndex] - amount;
               $display("Destination account %d after transaction has a total balance of %d", destinationAcc, balance_database[destinationAccIndex]);
-              if( lang ) begin
+              if( lang == `arabic )
                 $display("الحساب المستلم رقم %d بعد العملية لديه رصيد إجمالي قدره %d", destinationAcc, balance_database[destinationAccIndex]); 
-              end
-              else begin
+              else
                 $display("Destination account %d after transaction has a total balance of %d", destinationAcc, balance_database[destinationAccIndex]);
-              end
           end
           else begin
               currState = `MENU;
@@ -276,11 +271,11 @@ module ATM(
           end
       end
 
-      `DEPOSIT: 
+      `DEPOSIT:
         begin : Deposit
             if((depAmount==amount) && (balance_database[accIndex] + amount < 65535))
               begin
-                if( lang ) begin
+                if( lang == `arabic ) begin
                     $display("المبلغ المودع هو %d", amount);
                     $display("هل أنت متأكد من رغبتك في إيداع هذا المبلغ؟ نعم/لا");
                   end
@@ -289,27 +284,14 @@ module ATM(
                   $display("Are you sure you want to deposit this amount? T/F");
                 end
                 error = `false;
-                case (choice)
-                    1'b1: begin
-                      balance_database[accIndex] = balance_database[accIndex] + amount;
-                      balance = balance_database[accIndex];
-                      if( lang ) begin
-                        $display("الحساب %d لديه رصيد %d بعد إيداع مبلغ %d", accNumber, balance_database[accIndex], amount);                  end
-                      else begin
-                        $display("Account %d has balance %d after depositing %d", accNumber, balance_database[accIndex], amount);
-                      end
-                    end
-                    default:begin 
-                      balance_database[accIndex] = balance_database[accIndex];
-                      balance = balance_database[accIndex];
-                      if( lang ) begin
-                          $display("تم إلغاء العملية. رصيدك هو %d", balance_database[accIndex]);
-                        end
-                      else begin
-                        $display("Operation cancelled. Your balance is %d",balance_database[accIndex]);
-                      end
-                    end
-                endcase
+                balance_database[accIndex] = balance_database[accIndex] + amount;
+                balance = balance_database[accIndex];
+                if( lang == `arabic ) begin
+                  $display("الحساب %d لديه رصيد %d بعد إيداع مبلغ %d", accNumber, balance_database[accIndex], amount);
+                  end
+                else begin
+                  $display("Account %d has balance %d after depositing %d", accNumber, balance_database[accIndex], amount);
+                end
               end
             else begin
               currState = `MENU;
