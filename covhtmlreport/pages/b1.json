@@ -1,272 +1,141 @@
 var g_data = {
-b191:[{dummy:0},
-{anchor:'cvg192',items:[{z:'    if(deAuth == `true)',f:'design.v',l:'47',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'    if(deAuth == `true)',f:'design.v',l:'47',h:'0',c:'r'}
-,{cr:'m',t:'A',z:'    if(deAuth == `true)',f:'design.v',l:'47',h:'0',c:'r'}
+b132:[{dummy:0},
+{anchor:'cvg133',items:[{z:'    if(deAuth == `true)',f:'design.v',l:'48',c:'Y',p:'50.00'}
+,{cr:'c',t:'I',z:'    if(deAuth == `true)',f:'design.v',l:'48',h:'1',c:'g'}
+,{cr:'m',t:'A',z:'    if(deAuth == `true)',f:'design.v',l:'48',h:'0',c:'r'}
 ]},
-{anchor:'cvg193',items:[{z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'61',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'61',h:'1',c:'g'}
-,{cr:'c',t:'A',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'61',h:'9',c:'g'}
+{anchor:'cvg134',items:[{z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'62',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'62',h:'3',c:'g'}
+,{cr:'c',t:'A',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'62',h:'37',c:'g'}
 ]},
-{anchor:'cvg194',items:[{z:'              if(action == `FIND) begin',f:'design.v',l:'63',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'              if(action == `FIND) begin',f:'design.v',l:'63',h:'0',c:'r'}
-,{cr:'c',t:'A',z:'              if(action == `FIND) begin',f:'design.v',l:'63',h:'1',c:'g'}
+{anchor:'cvg135',items:[{z:'              if(action == `FIND) begin',f:'design.v',l:'64',c:'R',p:'33.33'}
+,{cr:'m',t:'I',z:'              if(action == `FIND) begin',f:'design.v',l:'64',h:'0',c:'r'}
+,{cr:'c',t:'T',z:'              else if(action == `AUTHENTICATE) begin',f:'design.v',l:'69',h:'3',c:'g'}
+,{cr:'m',t:'A',z:'              if(action == `FIND) begin',f:'design.v',l:'64',h:'0',c:'r'}
 ]},
-{anchor:'cvg195',items:[{z:'              if(action == `AUTHENTICATE) begin',f:'design.v',l:'68',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'              if(action == `AUTHENTICATE) begin',f:'design.v',l:'68',h:'1',c:'g'}
-,{cr:'m',t:'A',z:'              if(action == `AUTHENTICATE) begin',f:'design.v',l:'68',h:'0',c:'r'}
-]},
-{anchor:'cvg196',items:[{z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'69',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'69',h:'1',c:'g'}
-,{cr:'m',t:'A',z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'69',h:'0',c:'r'}
+{anchor:'cvg136',items:[{z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'70',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'70',h:'2',c:'g'}
+,{cr:'c',t:'E',z:'                else begin',f:'design.v',l:'75',h:'1',c:'g'}
 ]}],
-b256:[{dummy:0},
-{anchor:'cvg257',items:[{z:'    if(deAuth == `true)',f:'design.v',l:'47',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'    if(deAuth == `true)',f:'design.v',l:'47',h:'0',c:'r'}
-,{cr:'m',t:'A',z:'    if(deAuth == `true)',f:'design.v',l:'47',h:'0',c:'r'}
+b169:[{dummy:0},
+{anchor:'cvg170',items:[{z:'    if(deAuth == `true)',f:'design.v',l:'48',c:'Y',p:'50.00'}
+,{cr:'c',t:'I',z:'    if(deAuth == `true)',f:'design.v',l:'48',h:'1',c:'g'}
+,{cr:'m',t:'A',z:'    if(deAuth == `true)',f:'design.v',l:'48',h:'0',c:'r'}
 ]},
-{anchor:'cvg258',items:[{z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'61',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'61',h:'1',c:'g'}
-,{cr:'c',t:'A',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'61',h:'19',c:'g'}
+{anchor:'cvg171',items:[{z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'62',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'62',h:'2',c:'g'}
+,{cr:'c',t:'A',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'62',h:'38',c:'g'}
 ]},
-{anchor:'cvg259',items:[{z:'              if(action == `FIND) begin',f:'design.v',l:'63',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'              if(action == `FIND) begin',f:'design.v',l:'63',h:'1',c:'g'}
-,{cr:'m',t:'A',z:'              if(action == `FIND) begin',f:'design.v',l:'63',h:'0',c:'r'}
+{anchor:'cvg172',items:[{z:'              if(action == `FIND) begin',f:'design.v',l:'64',c:'R',p:'33.33'}
+,{cr:'c',t:'I',z:'              if(action == `FIND) begin',f:'design.v',l:'64',h:'2',c:'g'}
+,{cr:'m',t:'T',z:'              else if(action == `AUTHENTICATE) begin',f:'design.v',l:'69',h:'0',c:'r'}
+,{cr:'m',t:'A',z:'              if(action == `FIND) begin',f:'design.v',l:'64',h:'0',c:'r'}
 ]},
-{anchor:'cvg260',items:[{z:'              if(action == `AUTHENTICATE) begin',f:'design.v',l:'68',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'              if(action == `AUTHENTICATE) begin',f:'design.v',l:'68',h:'0',c:'r'}
-,{cr:'c',t:'A',z:'              if(action == `AUTHENTICATE) begin',f:'design.v',l:'68',h:'1',c:'g'}
-]},
-{anchor:'cvg261',items:[{z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'69',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'69',h:'0',c:'r'}
-,{cr:'m',t:'A',z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'69',h:'0',c:'r'}
+{anchor:'cvg173',items:[{z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'70',c:'R',p:'0.00'}
+,{cr:'m',t:'I',z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'70',h:'0',c:'r'}
+,{cr:'m',t:'E',z:'                else begin',f:'design.v',l:'75',h:'0',c:'r'}
 ]}],
 b2:[{dummy:0},
-{anchor:'cvg5',items:[{z:'    if( lang == 1\'b1 )begin',f:'design.v',l:'100',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'    if( lang == 1\'b1 )begin',f:'design.v',l:'100',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'    else  begin',f:'design.v',l:'103',h:'1',c:'g'}
+{anchor:'cvg5',items:[{z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',h:'1090',c:'g'}
+,{cr:'c',t:'E',z:'     else begin',f:'design.v',l:'139',h:'14',c:'g'}
 ]},
-{anchor:'cvg6',items:[{z:'     if (counter <= timeLimit)begin',f:'design.v',l:'136',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'     if (counter <= timeLimit)begin',f:'design.v',l:'136',h:'12',c:'g'}
-,{cr:'m',t:'E',z:'     else',f:'design.v',l:'140',h:'0',c:'r'}
+{anchor:'cvg6',items:[{z:'      if(logout == `true)',f:'design.v',l:'156',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'      if(logout == `true)',f:'design.v',l:'156',h:'11',c:'g'}
+,{cr:'c',t:'A',z:'      if(logout == `true)',f:'design.v',l:'156',h:'796',c:'g'}
 ]},
-{anchor:'cvg7',items:[{z:'         if( lang ) begin',f:'design.v',l:'142',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'         if( lang ) begin',f:'design.v',l:'142',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'         else begin',f:'design.v',l:'145',h:'0',c:'r'}
+{anchor:'cvg7',items:[{z:'    if(logout == `true) begin',f:'design.v',l:'161',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'2',c:'g'}
+,{cr:'c',t:'A',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'2',c:'g'}
 ]},
-{anchor:'cvg8',items:[{z:'    if(exit == `true || logout == `true) begin',f:'design.v',l:'160',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'    if(exit == `true || logout == `true) begin',f:'design.v',l:'160',h:'0',c:'r'}
-,{cr:'c',t:'A',z:'    if(exit == `true || logout == `true) begin',f:'design.v',l:'160',h:'13',c:'g'}
+{anchor:'cvg8',items:[{z:'      if (currState != `WAITING)',f:'design.v',l:'175',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'      if (currState != `WAITING)',f:'design.v',l:'175',h:'1077',c:'g'}
+,{cr:'c',t:'E',z:'      else',f:'design.v',l:'177',h:'27',c:'g'}
 ]},
-{anchor:'cvg9',items:[{z:'    if(currState == `MENU) begin',f:'design.v',l:'169',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'    if(currState == `MENU) begin',f:'design.v',l:'169',h:'9',c:'g'}
-,{cr:'c',t:'A',z:'    if(currState == `MENU) begin',f:'design.v',l:'169',h:'4',c:'g'}
+{anchor:'cvg9',items:[{z:'      case (currState) // synopsys full_case parallel_case',f:'design.v',l:'179',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'      `WAITING: begin',f:'design.v',l:'181',h:'27',c:'g'}
+,{cr:'c',t:'T',z:'      `BALANCE: begin',f:'design.v',l:'207',h:'200',c:'g'}
+,{cr:'c',t:'T',z:'      `WITHDRAW: begin',f:'design.v',l:'219',h:'195',c:'g'}
+,{cr:'c',t:'T',z:'      `WITHDRAW_SHOW_BALANCE: begin',f:'design.v',l:'231',h:'219',c:'g'}
+,{cr:'c',t:'T',z:'      `TRANSACTION: begin          ',f:'design.v',l:'247',h:'190',c:'g'}
+,{cr:'c',t:'T',z:'      `DEPOSIT:',f:'design.v',l:'267',h:'273',c:'g'}
 ]},
-{anchor:'cvg10',items:[{z:'      if((menuOption >= 0) & (menuOption <= 7))begin ',f:'design.v',l:'170',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'      if((menuOption >= 0) & (menuOption <= 7))begin ',f:'design.v',l:'170',h:'8',c:'g'}
-,{cr:'c',t:'E',z:'      end else',f:'design.v',l:'173',h:'1',c:'g'}
+{anchor:'cvg10',items:[{z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'        else if(isAuthenticated == `false || logout == `true) begin',f:'design.v',l:'189',h:'25',c:'g'}
+,{cr:'c',t:'A',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',h:'1',c:'g'}
 ]},
-{anchor:'cvg11',items:[{z:'      if(logout == `true)',f:'design.v',l:'175',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'      if(logout == `true)',f:'design.v',l:'175',h:'0',c:'r'}
-,{cr:'c',t:'A',z:'      if(logout == `true)',f:'design.v',l:'175',h:'9',c:'g'}
+{anchor:'cvg11',items:[{z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',h:'93',c:'g'}
+,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'225',h:'102',c:'g'}
 ]},
-{anchor:'cvg12',items:[{z:'      case (currState)',f:'design.v',l:'182',c:'Y',p:'85.71'}
-,{cr:'c',t:'T',z:'      `WAITING: begin',f:'design.v',l:'184',h:'3',c:'g'}
-,{cr:'c',t:'T',z:'      `BALANCE: begin',f:'design.v',l:'212',h:'2',c:'g'}
-,{cr:'m',t:'T',z:'      `WITHDRAW: begin',f:'design.v',l:'224',h:'0',c:'r'}
-,{cr:'c',t:'T',z:'      `WITHDRAW_SHOW_BALANCE: begin',f:'design.v',l:'238',h:'2',c:'g'}
-,{cr:'c',t:'T',z:'      `TRANSACTION: begin',f:'design.v',l:'258',h:'2',c:'g'}
-,{cr:'c',t:'T',z:'      `DEPOSIT: ',f:'design.v',l:'278',h:'2',c:'g'}
-,{cr:'c',t:'T',z:'      default: begin',f:'design.v',l:'319',h:'2',c:'g'}
+{anchor:'cvg12',items:[{z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',h:'115',c:'g'}
+,{cr:'c',t:'E',z:'            else begin',f:'design.v',l:'241',h:'104',c:'g'}
 ]},
-{anchor:'cvg13',items:[{z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'185',c:'R',p:'33.33'}
-,{cr:'c',t:'I',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'185',h:'3',c:'g'}
-,{cr:'m',t:'T',z:'        else if(isAuthenticated == `false || logout == `true) begin',f:'design.v',l:'194',h:'0',c:'r'}
-,{cr:'m',t:'A',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'185',h:'0',c:'r'}
-]},
-{anchor:'cvg14',items:[{z:'          if( lang == 1\'b1 ) begin',f:'design.v',l:'187',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'          if( lang == 1\'b1 ) begin',f:'design.v',l:'187',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'190',h:'3',c:'g'}
-]},
-{anchor:'cvg15',items:[{z:'          if( lang ) begin',f:'design.v',l:'195',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'          if( lang ) begin',f:'design.v',l:'195',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'          else begin',f:'design.v',l:'201',h:'0',c:'r'}
-]},
-{anchor:'cvg16',items:[{z:'            if (logout == `true)',f:'design.v',l:'196',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'            if (logout == `true)',f:'design.v',l:'196',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'            else',f:'design.v',l:'198',h:'0',c:'r'}
-]},
-{anchor:'cvg17',items:[{z:'            if (logout == `true)',f:'design.v',l:'202',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'            if (logout == `true)',f:'design.v',l:'202',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'            else',f:'design.v',l:'204',h:'0',c:'r'}
-]},
-{anchor:'cvg18',items:[{z:'            if( lang ) begin',f:'design.v',l:'214',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'            if( lang ) begin',f:'design.v',l:'214',h:'2',c:'g'}
-,{cr:'m',t:'E',z:'            else begin',f:'design.v',l:'217',h:'0',c:'r'}
-]},
-{anchor:'cvg19',items:[{z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'225',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'225',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'          else begin',f:'design.v',l:'231',h:'0',c:'r'}
-]},
-{anchor:'cvg20',items:[{z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'239',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'239',h:'1',c:'g'}
-,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'251',h:'1',c:'g'}
-]},
-{anchor:'cvg21',items:[{z:'            if( lang ) begin',f:'design.v',l:'244',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'            if( lang ) begin',f:'design.v',l:'244',h:'1',c:'g'}
-,{cr:'m',t:'E',z:'            else begin',f:'design.v',l:'247',h:'0',c:'r'}
-]},
-{anchor:'cvg22',items:[{z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'259',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'259',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'272',h:'2',c:'g'}
-]},
-{anchor:'cvg23',items:[{z:'              if( lang ) begin',f:'design.v',l:'265',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'              if( lang ) begin',f:'design.v',l:'265',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'              else begin',f:'design.v',l:'268',h:'0',c:'r'}
-]},
-{anchor:'cvg24',items:[{z:'            if((depAmount==amount) && (balance_database[accIndex] + amoun...',f:'design.v',l:'280',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'            if((depAmount==amount) && (balance_database[accIndex] + amoun...',f:'design.v',l:'280',h:'2',c:'g'}
-,{cr:'m',t:'E',z:'            else begin',f:'design.v',l:'314',h:'0',c:'r'}
-]},
-{anchor:'cvg25',items:[{z:'                if( lang ) begin',f:'design.v',l:'282',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'                if( lang ) begin',f:'design.v',l:'282',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'                else begin',f:'design.v',l:'286',h:'2',c:'g'}
-]},
-{anchor:'cvg26',items:[{z:'                case (choice)',f:'design.v',l:'291',c:'Y',p:'50.00'}
-,{cr:'c',t:'T',z:'                    1\'b1: begin',f:'design.v',l:'292',h:'2',c:'g'}
-,{cr:'m',t:'T',z:'                    default:begin ',f:'design.v',l:'302',h:'0',c:'r'}
-]},
-{anchor:'cvg27',items:[{z:'                      if( lang ) begin',f:'design.v',l:'295',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'                      if( lang ) begin',f:'design.v',l:'295',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'                      else begin',f:'design.v',l:'298',h:'2',c:'g'}
-]},
-{anchor:'cvg28',items:[{z:'                      if( lang ) begin',f:'design.v',l:'305',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'                      if( lang ) begin',f:'design.v',l:'305',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'                      else begin',f:'design.v',l:'308',h:'0',c:'r'}
+{anchor:'cvg13',items:[{z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',h:'33',c:'g'}
+,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'262',h:'157',c:'g'}
 ]}],
 b4:[{dummy:0},
-{anchor:'cvg5',items:[{z:'    if( lang == 1\'b1 )begin',f:'design.v',l:'100',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'    if( lang == 1\'b1 )begin',f:'design.v',l:'100',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'    else  begin',f:'design.v',l:'103',h:'1',c:'g'}
+{anchor:'cvg5',items:[{z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',h:'1090',c:'g'}
+,{cr:'c',t:'E',z:'     else begin',f:'design.v',l:'139',h:'14',c:'g'}
 ]},
-{anchor:'cvg6',items:[{z:'     if (counter <= timeLimit)begin',f:'design.v',l:'136',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'     if (counter <= timeLimit)begin',f:'design.v',l:'136',h:'12',c:'g'}
-,{cr:'m',t:'E',z:'     else',f:'design.v',l:'140',h:'0',c:'r'}
+{anchor:'cvg6',items:[{z:'      if(logout == `true)',f:'design.v',l:'156',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'      if(logout == `true)',f:'design.v',l:'156',h:'11',c:'g'}
+,{cr:'c',t:'A',z:'      if(logout == `true)',f:'design.v',l:'156',h:'796',c:'g'}
 ]},
-{anchor:'cvg7',items:[{z:'         if( lang ) begin',f:'design.v',l:'142',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'         if( lang ) begin',f:'design.v',l:'142',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'         else begin',f:'design.v',l:'145',h:'0',c:'r'}
+{anchor:'cvg7',items:[{z:'    if(logout == `true) begin',f:'design.v',l:'161',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'2',c:'g'}
+,{cr:'c',t:'A',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'2',c:'g'}
 ]},
-{anchor:'cvg8',items:[{z:'    if(exit == `true || logout == `true) begin',f:'design.v',l:'160',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'    if(exit == `true || logout == `true) begin',f:'design.v',l:'160',h:'0',c:'r'}
-,{cr:'c',t:'A',z:'    if(exit == `true || logout == `true) begin',f:'design.v',l:'160',h:'13',c:'g'}
+{anchor:'cvg8',items:[{z:'      if (currState != `WAITING)',f:'design.v',l:'175',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'      if (currState != `WAITING)',f:'design.v',l:'175',h:'1077',c:'g'}
+,{cr:'c',t:'E',z:'      else',f:'design.v',l:'177',h:'27',c:'g'}
 ]},
-{anchor:'cvg9',items:[{z:'    if(currState == `MENU) begin',f:'design.v',l:'169',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'    if(currState == `MENU) begin',f:'design.v',l:'169',h:'9',c:'g'}
-,{cr:'c',t:'A',z:'    if(currState == `MENU) begin',f:'design.v',l:'169',h:'4',c:'g'}
+{anchor:'cvg9',items:[{z:'      case (currState) // synopsys full_case parallel_case',f:'design.v',l:'179',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'      `WAITING: begin',f:'design.v',l:'181',h:'27',c:'g'}
+,{cr:'c',t:'T',z:'      `BALANCE: begin',f:'design.v',l:'207',h:'200',c:'g'}
+,{cr:'c',t:'T',z:'      `WITHDRAW: begin',f:'design.v',l:'219',h:'195',c:'g'}
+,{cr:'c',t:'T',z:'      `WITHDRAW_SHOW_BALANCE: begin',f:'design.v',l:'231',h:'219',c:'g'}
+,{cr:'c',t:'T',z:'      `TRANSACTION: begin          ',f:'design.v',l:'247',h:'190',c:'g'}
+,{cr:'c',t:'T',z:'      `DEPOSIT:',f:'design.v',l:'267',h:'273',c:'g'}
 ]},
-{anchor:'cvg10',items:[{z:'      if((menuOption >= 0) & (menuOption <= 7))begin ',f:'design.v',l:'170',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'      if((menuOption >= 0) & (menuOption <= 7))begin ',f:'design.v',l:'170',h:'8',c:'g'}
-,{cr:'c',t:'E',z:'      end else',f:'design.v',l:'173',h:'1',c:'g'}
+{anchor:'cvg10',items:[{z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'        else if(isAuthenticated == `false || logout == `true) begin',f:'design.v',l:'189',h:'25',c:'g'}
+,{cr:'c',t:'A',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',h:'1',c:'g'}
 ]},
-{anchor:'cvg11',items:[{z:'      if(logout == `true)',f:'design.v',l:'175',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'      if(logout == `true)',f:'design.v',l:'175',h:'0',c:'r'}
-,{cr:'c',t:'A',z:'      if(logout == `true)',f:'design.v',l:'175',h:'9',c:'g'}
+{anchor:'cvg11',items:[{z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',h:'93',c:'g'}
+,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'225',h:'102',c:'g'}
 ]},
-{anchor:'cvg12',items:[{z:'      case (currState)',f:'design.v',l:'182',c:'Y',p:'85.71'}
-,{cr:'c',t:'T',z:'      `WAITING: begin',f:'design.v',l:'184',h:'3',c:'g'}
-,{cr:'c',t:'T',z:'      `BALANCE: begin',f:'design.v',l:'212',h:'2',c:'g'}
-,{cr:'m',t:'T',z:'      `WITHDRAW: begin',f:'design.v',l:'224',h:'0',c:'r'}
-,{cr:'c',t:'T',z:'      `WITHDRAW_SHOW_BALANCE: begin',f:'design.v',l:'238',h:'2',c:'g'}
-,{cr:'c',t:'T',z:'      `TRANSACTION: begin',f:'design.v',l:'258',h:'2',c:'g'}
-,{cr:'c',t:'T',z:'      `DEPOSIT: ',f:'design.v',l:'278',h:'2',c:'g'}
-,{cr:'c',t:'T',z:'      default: begin',f:'design.v',l:'319',h:'2',c:'g'}
+{anchor:'cvg12',items:[{z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',h:'115',c:'g'}
+,{cr:'c',t:'E',z:'            else begin',f:'design.v',l:'241',h:'104',c:'g'}
 ]},
-{anchor:'cvg13',items:[{z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'185',c:'R',p:'33.33'}
-,{cr:'c',t:'I',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'185',h:'3',c:'g'}
-,{cr:'m',t:'T',z:'        else if(isAuthenticated == `false || logout == `true) begin',f:'design.v',l:'194',h:'0',c:'r'}
-,{cr:'m',t:'A',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'185',h:'0',c:'r'}
-]},
-{anchor:'cvg14',items:[{z:'          if( lang == 1\'b1 ) begin',f:'design.v',l:'187',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'          if( lang == 1\'b1 ) begin',f:'design.v',l:'187',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'190',h:'3',c:'g'}
-]},
-{anchor:'cvg15',items:[{z:'          if( lang ) begin',f:'design.v',l:'195',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'          if( lang ) begin',f:'design.v',l:'195',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'          else begin',f:'design.v',l:'201',h:'0',c:'r'}
-]},
-{anchor:'cvg16',items:[{z:'            if (logout == `true)',f:'design.v',l:'196',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'            if (logout == `true)',f:'design.v',l:'196',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'            else',f:'design.v',l:'198',h:'0',c:'r'}
-]},
-{anchor:'cvg17',items:[{z:'            if (logout == `true)',f:'design.v',l:'202',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'            if (logout == `true)',f:'design.v',l:'202',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'            else',f:'design.v',l:'204',h:'0',c:'r'}
-]},
-{anchor:'cvg18',items:[{z:'            if( lang ) begin',f:'design.v',l:'214',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'            if( lang ) begin',f:'design.v',l:'214',h:'2',c:'g'}
-,{cr:'m',t:'E',z:'            else begin',f:'design.v',l:'217',h:'0',c:'r'}
-]},
-{anchor:'cvg19',items:[{z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'225',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'225',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'          else begin',f:'design.v',l:'231',h:'0',c:'r'}
-]},
-{anchor:'cvg20',items:[{z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'239',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'239',h:'1',c:'g'}
-,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'251',h:'1',c:'g'}
-]},
-{anchor:'cvg21',items:[{z:'            if( lang ) begin',f:'design.v',l:'244',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'            if( lang ) begin',f:'design.v',l:'244',h:'1',c:'g'}
-,{cr:'m',t:'E',z:'            else begin',f:'design.v',l:'247',h:'0',c:'r'}
-]},
-{anchor:'cvg22',items:[{z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'259',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'259',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'272',h:'2',c:'g'}
-]},
-{anchor:'cvg23',items:[{z:'              if( lang ) begin',f:'design.v',l:'265',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'              if( lang ) begin',f:'design.v',l:'265',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'              else begin',f:'design.v',l:'268',h:'0',c:'r'}
-]},
-{anchor:'cvg24',items:[{z:'            if((depAmount==amount) && (balance_database[accIndex] + amoun...',f:'design.v',l:'280',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'            if((depAmount==amount) && (balance_database[accIndex] + amoun...',f:'design.v',l:'280',h:'2',c:'g'}
-,{cr:'m',t:'E',z:'            else begin',f:'design.v',l:'314',h:'0',c:'r'}
-]},
-{anchor:'cvg25',items:[{z:'                if( lang ) begin',f:'design.v',l:'282',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'                if( lang ) begin',f:'design.v',l:'282',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'                else begin',f:'design.v',l:'286',h:'2',c:'g'}
-]},
-{anchor:'cvg26',items:[{z:'                case (choice)',f:'design.v',l:'291',c:'Y',p:'50.00'}
-,{cr:'c',t:'T',z:'                    1\'b1: begin',f:'design.v',l:'292',h:'2',c:'g'}
-,{cr:'m',t:'T',z:'                    default:begin ',f:'design.v',l:'302',h:'0',c:'r'}
-]},
-{anchor:'cvg27',items:[{z:'                      if( lang ) begin',f:'design.v',l:'295',c:'Y',p:'50.00'}
-,{cr:'m',t:'I',z:'                      if( lang ) begin',f:'design.v',l:'295',h:'0',c:'r'}
-,{cr:'c',t:'E',z:'                      else begin',f:'design.v',l:'298',h:'2',c:'g'}
-]},
-{anchor:'cvg28',items:[{z:'                      if( lang ) begin',f:'design.v',l:'305',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'                      if( lang ) begin',f:'design.v',l:'305',h:'0',c:'r'}
-,{cr:'m',t:'E',z:'                      else begin',f:'design.v',l:'308',h:'0',c:'r'}
+{anchor:'cvg13',items:[{z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',h:'33',c:'g'}
+,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'262',h:'157',c:'g'}
 ]}],
 b3:[{dummy:0},
-{anchor:'cvg322',items:[{z:'    if(deAuth == `true)',f:'design.v',l:'47',c:'R',p:'0.00'}
-,{cr:'m',t:'I',z:'    if(deAuth == `true)',f:'design.v',l:'47',h:'0',c:'r'}
-,{cr:'m',t:'A',z:'    if(deAuth == `true)',f:'design.v',l:'47',h:'0',c:'r'}
+{anchor:'cvg207',items:[{z:'    if(deAuth == `true)',f:'design.v',l:'48',c:'Y',p:'50.00'}
+,{cr:'c',t:'I',z:'    if(deAuth == `true)',f:'design.v',l:'48',h:'2',c:'g'}
+,{cr:'m',t:'A',z:'    if(deAuth == `true)',f:'design.v',l:'48',h:'0',c:'r'}
 ]},
-{anchor:'cvg323',items:[{z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'61',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'61',h:'2',c:'g'}
-,{cr:'c',t:'A',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'61',h:'28',c:'g'}
+{anchor:'cvg208',items:[{z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'62',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'62',h:'5',c:'g'}
+,{cr:'c',t:'A',z:'          if(accNumber == acc_database[i]) begin',f:'design.v',l:'62',h:'75',c:'g'}
 ]},
-{anchor:'cvg324',items:[{z:'              if(action == `FIND) begin',f:'design.v',l:'63',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'              if(action == `FIND) begin',f:'design.v',l:'63',h:'1',c:'g'}
-,{cr:'c',t:'A',z:'              if(action == `FIND) begin',f:'design.v',l:'63',h:'1',c:'g'}
+{anchor:'cvg209',items:[{z:'              if(action == `FIND) begin',f:'design.v',l:'64',c:'Y',p:'66.66'}
+,{cr:'c',t:'I',z:'              if(action == `FIND) begin',f:'design.v',l:'64',h:'2',c:'g'}
+,{cr:'c',t:'T',z:'              else if(action == `AUTHENTICATE) begin',f:'design.v',l:'69',h:'3',c:'g'}
+,{cr:'m',t:'A',z:'              if(action == `FIND) begin',f:'design.v',l:'64',h:'0',c:'r'}
 ]},
-{anchor:'cvg325',items:[{z:'              if(action == `AUTHENTICATE) begin',f:'design.v',l:'68',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'              if(action == `AUTHENTICATE) begin',f:'design.v',l:'68',h:'1',c:'g'}
-,{cr:'c',t:'A',z:'              if(action == `AUTHENTICATE) begin',f:'design.v',l:'68',h:'1',c:'g'}
-]},
-{anchor:'cvg326',items:[{z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'69',c:'Y',p:'50.00'}
-,{cr:'c',t:'I',z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'69',h:'1',c:'g'}
-,{cr:'m',t:'A',z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'69',h:'0',c:'r'}
+{anchor:'cvg210',items:[{z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'70',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'                if(pin == pin_database[i]) begin',f:'design.v',l:'70',h:'2',c:'g'}
+,{cr:'c',t:'E',z:'                else begin',f:'design.v',l:'75',h:'1',c:'g'}
 ]}],
 dummyEnd:0
 };

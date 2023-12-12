@@ -12,6 +12,7 @@ LANGUAGES = {
         'deposit_done': "Account is Deposited Successfully",
         'deposit_entry': "Please Enter Your Cash: ",
         'insufficient_funds': "Insufficient funds",
+        'account_not_found': "Account not found",
         'withdraw': "Please Collect Your Cash",
         'withdraw_with_balance': "Please Collect Your Cash\nYour current balance is: ",
         'invalid_choice': "Invalid choice. Please enter a number between 1 and 9.",
@@ -26,6 +27,7 @@ LANGUAGES = {
         'deposit_done': "تم إيداع الحساب بنجاح",
         'deposit_entry': "يرجى إدخال مبلغ الإيداع الخاص بك: ",
         'insufficient_funds': "رصيد غير كافٍ",
+        'account_not_found': "الحساب غير موجود",
         'withdraw': "يرجى استلام نقودك",
         'withdraw_with_balance': "يرجى استلام نقودك\nرصيدك الحالي هو: ",
         'invalid_choice': "خيار غير صالح. يرجى إدخال رقم بين 1 و 9.",
@@ -76,6 +78,9 @@ class ATM:
     def check_balance(self):
         return str(LANGUAGES[self.lang]['balance']) + str(self.users[self.current_user]['balance'])
 
+    def wasFound(self, dest):
+        return self.users[dest] is not None
+
     def deposit(self, amount):
         self.users[self.current_user]['balance'] += amount
         return LANGUAGES[self.lang]['deposit_done']
@@ -92,6 +97,16 @@ class ATM:
             return LANGUAGES[self.lang]['insufficient_funds']
         else:
             self.users[self.current_user]['balance'] -= amount
+            return LANGUAGES[self.lang]['withdraw_with_balance'] + str(self.users[self.current_user]['balance'])
+
+    def transaction(self, amount, dest):
+        if amount > self.users[self.current_user]['balance']:
+            return LANGUAGES[self.lang]['insufficient_funds']
+        elif not self.wasFound(str(dest)):
+            return LANGUAGES[self.lang]['account_not_found']
+        else:
+            self.users[self.current_user]['balance'] -= amount
+            self.users[str(dest)]['balance'] += amount
             return LANGUAGES[self.lang]['withdraw_with_balance'] + str(self.users[self.current_user]['balance'])
 
     def check_idle_timeout(self):
@@ -122,14 +137,14 @@ def main():
             print("1. Login")
             print("2. Logout")
             print("3. Check Balance")
-            print("4. Withdraw With Balance")
-            print("5. Withdraw")
-            print("6. Deposit")
-            print("7. Exit")
+            print("4. Withdraw")
+            print("5. Withdraw With Balance")
+            print("6. Transaction")
+            print("7. Deposit")
+            print("8. Exit")
 
-            print("")
-            atm.last_activity_time = time.time()
-            choice = input("Enter your choice (1-7): ")
+            choice = input("Enter your choice (1-8): ")
+
             match choice:
                 case "1":
                     if atm.current_user:
@@ -153,7 +168,7 @@ def main():
                     atm.check_idle_timeout()
                     if atm.current_user:
                         amount = float(input("Enter the amount to withdraw: "))
-                        print(atm.withdraw_with_balance(amount))
+                        print(atm.withdraw(amount))
                     else:
                         print("Please login first.")
 
@@ -161,11 +176,20 @@ def main():
                     atm.check_idle_timeout()
                     if atm.current_user:
                         amount = float(input("Enter the amount to withdraw: "))
-                        print(atm.withdraw(amount))
+                        print(atm.withdraw_with_balance(amount))
                     else:
                         print("Please login first.")
 
                 case "6":
+                    atm.check_idle_timeout()
+                    if atm.current_user:
+                        amount = float(input("Enter transfer amount: "))
+                        dest = int(input("Enter destination account number: "))
+                        print(atm.transaction(amount, dest))
+                    else:
+                        print("Please login first.")
+
+                case "7":
                     atm.check_idle_timeout()
                     if atm.current_user:
                         amount = float(input(LANGUAGES[atm.lang]['deposit_entry']))
@@ -173,12 +197,13 @@ def main():
                     else:
                         print("Please login first.")
 
-                case "7":
+                case "8":
                     print("Thank you for using the ATM. Goodbye!")
                     break
 
                 case _:
-                    print("Invalid choice. Please enter a number between 1 and 9.")
+                    print("Invalid choice. Please enter a number between 1 and 8.")
+            atm.last_activity_time = time.time()
     elif lang == 1:
         atm.lang = 'ar'
         while True:
@@ -186,12 +211,13 @@ def main():
             print("1. تسجيل الدخول")
             print("2. تسجيل خروج")
             print("3. التأكد من الرصيد")
-            print("4. سحب نقدي مع اظهار الرصيد")
-            print("5. سحب نقدي")
-            print("6. ايداع نقدي")
-            print("7. الخروج")
+            print("4. سحب نقدي")
+            print("5. سحب نقدي مع اظهار الرصيد")
+            print("6. تحويل رصيد")
+            print("7. ايداع نقدي")
+            print("8. الخروج")
 
-            choice = input("برجاء ادخال رقم من (1-7): ")
+            choice = input("برجاء ادخال رقم من (1-8): ")
 
             match choice:
                 case "1":
@@ -204,37 +230,51 @@ def main():
                 case "2":
                     print(atm.logout())
                 case "3":
+                    atm.check_idle_timeout()
                     if atm.current_user:
                         print(atm.check_balance())
                     else:
                         print("برجاء تسجيل الدخول اولا.")
 
                 case "4":
-                    if atm.current_user:
-                        amount = float(input("ادخل المبلغ المراد سحبه: "))
-                        print(atm.withdraw_with_balance(amount))
-                    else:
-                        print("برجاء تسجيل الدخول اولا.")
-
-                case "5":
+                    atm.check_idle_timeout()
                     if atm.current_user:
                         amount = float(input("ادخل المبلغ المراد سحبه: "))
                         print(atm.withdraw(amount))
                     else:
                         print("برجاء تسجيل الدخول اولا.")
 
+                case "5":
+                    atm.check_idle_timeout()
+                    if atm.current_user:
+                        amount = float(input("ادخل المبلغ المراد سحبه: "))
+                        print(atm.withdraw_with_balance(amount))
+                    else:
+                        print("برجاء تسجيل الدخول اولا.")
+
                 case "6":
+                    atm.check_idle_timeout()
+                    if atm.current_user:
+                        amount = float(input("ادخل المبلغ المراد تحويله: "))
+                        dest = int(input("ادخل رقم الحساب المراد التحويل اليه: "))
+                        print(atm.transaction(amount, dest))
+                    else:
+                        print("برجاء تسجيل الدخول اولا.")
+
+                case "7":
+                    atm.check_idle_timeout()
                     if atm.current_user:
                         amount = float(input("ادخل المبلغ المراد ايداعه: "))
                         print(atm.deposit(amount))
                     else:
                         print("برجاء تسجيل الدخول اولا.")
 
-                case "7":
+                case "8":
                     print("شكرا لاستخدامكم خدمات الصرف الالي. مع السلامه!")
                     break
                 case _:
-                    print("اختيار خاطئ برجاء اختيار رقم من 1 الى 7: ")
+                    print("اختيار خاطئ برجاء اختيار رقم من 1 الى 8.")
+            atm.last_activity_time = time.time()
     else:
         print("Invalid Input")
 
