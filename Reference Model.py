@@ -107,7 +107,7 @@ class ATM:
         else:
             self.users[self.current_user]['balance'] -= amount
             self.users[str(dest)]['balance'] += amount
-            return LANGUAGES[self.lang]['withdraw_with_balance'] + str(self.users[self.current_user]['balance'])
+            return LANGUAGES[self.lang]['balance'] + str(self.users[self.current_user]['balance'])
 
     def check_idle_timeout(self):
         current_time = time.time()
