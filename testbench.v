@@ -71,7 +71,7 @@ module atm_tb();
         @(negedge clk);
       end
       else if (w == 6) begin
-        // lang = ~lang;
+        lang = ~lang;
         destinationAccNumber = 12'd4634; amount = 29;
         @(negedge clk);
         destinationAccNumber = 12'd3467; amount = 99;
@@ -82,12 +82,14 @@ module atm_tb();
         @(negedge clk);
       end
       else if (w == 7) begin
+        lang = ~lang;
         amount = 429;
         @(negedge clk);
         amount = 430;
         @(negedge clk);
       end
     end
+    amount = 0;
     // For Testing Timer
     #1020;
     //////////////////////////////
@@ -95,9 +97,9 @@ module atm_tb();
     pin = 4'b0011;
     menuOption = 3;
     @(negedge clk);
-    #10;
+    /* #10; */
     // Constrained Random Verification
-    menuOption = `WAITING;
+    /* menuOption = `WAITING;
     accNumber = 12'd3467;
     pin = 4'b1000;
 
@@ -117,8 +119,8 @@ module atm_tb();
       else
         menuOption = `BALANCE;
       @(negedge clk);
-    end
-    #10 $stop();
+    end */
+    #20 $stop();
    end
   //psl Deposit_Check: assert always((menuOption==`DEPOSIT)->next(balance==( prev(balance) + prev(amount) ) ) ) @(posedge clk);
   //psl Withdraw_Check: assert always((menuOption==`WITHDRAW)->next(balance==(prev(balance)-prev(amount)))) @(posedge clk);

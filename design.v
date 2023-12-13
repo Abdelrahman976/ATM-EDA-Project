@@ -163,7 +163,6 @@ module ATM(
       currState = `WAITING;
       //deathenticate the current user
       deAuth = `true;
-      #20;
     end
    end
 
@@ -199,6 +198,7 @@ module ATM(
           //   else
           // 	  $display("Account number or password was incorrect");
           // end
+          counter = 0;
           currState = `WAITING;
         end
       end
