@@ -37,86 +37,86 @@ b169:[{dummy:0},
 ]}],
 b2:[{dummy:0},
 {anchor:'cvg5',items:[{z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',h:'1090',c:'g'}
-,{cr:'c',t:'E',z:'     else begin',f:'design.v',l:'139',h:'14',c:'g'}
+,{cr:'c',t:'I',z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',h:'1109',c:'g'}
+,{cr:'c',t:'E',z:'     else begin',f:'design.v',l:'139',h:'10',c:'g'}
 ]},
 {anchor:'cvg6',items:[{z:'      if(logout == `true)',f:'design.v',l:'156',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'      if(logout == `true)',f:'design.v',l:'156',h:'11',c:'g'}
-,{cr:'c',t:'A',z:'      if(logout == `true)',f:'design.v',l:'156',h:'796',c:'g'}
+,{cr:'c',t:'I',z:'      if(logout == `true)',f:'design.v',l:'156',h:'6',c:'g'}
+,{cr:'c',t:'A',z:'      if(logout == `true)',f:'design.v',l:'156',h:'801',c:'g'}
 ]},
 {anchor:'cvg7',items:[{z:'    if(logout == `true) begin',f:'design.v',l:'161',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'2',c:'g'}
-,{cr:'c',t:'A',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'2',c:'g'}
+,{cr:'c',t:'I',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'1',c:'g'}
+,{cr:'c',t:'A',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'4',c:'g'}
 ]},
-{anchor:'cvg8',items:[{z:'      if (currState != `WAITING)',f:'design.v',l:'175',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'      if (currState != `WAITING)',f:'design.v',l:'175',h:'1077',c:'g'}
-,{cr:'c',t:'E',z:'      else',f:'design.v',l:'177',h:'27',c:'g'}
+{anchor:'cvg8',items:[{z:'      if (currState != `WAITING)',f:'design.v',l:'174',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'      if (currState != `WAITING)',f:'design.v',l:'174',h:'1081',c:'g'}
+,{cr:'c',t:'E',z:'      else',f:'design.v',l:'176',h:'38',c:'g'}
 ]},
-{anchor:'cvg9',items:[{z:'      case (currState) // synopsys full_case parallel_case',f:'design.v',l:'179',c:'G',p:'100.00'}
-,{cr:'c',t:'T',z:'      `WAITING: begin',f:'design.v',l:'181',h:'27',c:'g'}
-,{cr:'c',t:'T',z:'      `BALANCE: begin',f:'design.v',l:'207',h:'200',c:'g'}
-,{cr:'c',t:'T',z:'      `WITHDRAW: begin',f:'design.v',l:'219',h:'195',c:'g'}
+{anchor:'cvg9',items:[{z:'      case (currState) // synopsys full_case parallel_case',f:'design.v',l:'178',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'      `WAITING: begin',f:'design.v',l:'180',h:'38',c:'g'}
+,{cr:'c',t:'T',z:'      `BALANCE: begin',f:'design.v',l:'207',h:'202',c:'g'}
+,{cr:'c',t:'T',z:'      `WITHDRAW: begin',f:'design.v',l:'219',h:'197',c:'g'}
 ,{cr:'c',t:'T',z:'      `WITHDRAW_SHOW_BALANCE: begin',f:'design.v',l:'231',h:'219',c:'g'}
-,{cr:'c',t:'T',z:'      `TRANSACTION: begin          ',f:'design.v',l:'247',h:'190',c:'g'}
-,{cr:'c',t:'T',z:'      `DEPOSIT:',f:'design.v',l:'267',h:'273',c:'g'}
+,{cr:'c',t:'T',z:'      `TRANSACTION: begin          ',f:'design.v',l:'247',h:'188',c:'g'}
+,{cr:'c',t:'T',z:'      `DEPOSIT:',f:'design.v',l:'267',h:'275',c:'g'}
 ]},
-{anchor:'cvg10',items:[{z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',h:'1',c:'g'}
-,{cr:'c',t:'T',z:'        else if(isAuthenticated == `false || logout == `true) begin',f:'design.v',l:'189',h:'25',c:'g'}
-,{cr:'c',t:'A',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',h:'1',c:'g'}
+{anchor:'cvg10',items:[{z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'181',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'181',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'        else if(isAuthenticated == `false || logout == `true) begin',f:'design.v',l:'188',h:'22',c:'g'}
+,{cr:'c',t:'A',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'181',h:'15',c:'g'}
 ]},
 {anchor:'cvg11',items:[{z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',h:'93',c:'g'}
-,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'225',h:'102',c:'g'}
+,{cr:'c',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',h:'89',c:'g'}
+,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'225',h:'108',c:'g'}
 ]},
 {anchor:'cvg12',items:[{z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',h:'115',c:'g'}
-,{cr:'c',t:'E',z:'            else begin',f:'design.v',l:'241',h:'104',c:'g'}
+,{cr:'c',t:'I',z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',h:'120',c:'g'}
+,{cr:'c',t:'E',z:'            else begin',f:'design.v',l:'241',h:'99',c:'g'}
 ]},
 {anchor:'cvg13',items:[{z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',h:'33',c:'g'}
+,{cr:'c',t:'I',z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',h:'31',c:'g'}
 ,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'262',h:'157',c:'g'}
 ]}],
 b4:[{dummy:0},
 {anchor:'cvg5',items:[{z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',h:'1090',c:'g'}
-,{cr:'c',t:'E',z:'     else begin',f:'design.v',l:'139',h:'14',c:'g'}
+,{cr:'c',t:'I',z:'     if (counter <= 100)begin // 1000 ns',f:'design.v',l:'135',h:'1109',c:'g'}
+,{cr:'c',t:'E',z:'     else begin',f:'design.v',l:'139',h:'10',c:'g'}
 ]},
 {anchor:'cvg6',items:[{z:'      if(logout == `true)',f:'design.v',l:'156',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'      if(logout == `true)',f:'design.v',l:'156',h:'11',c:'g'}
-,{cr:'c',t:'A',z:'      if(logout == `true)',f:'design.v',l:'156',h:'796',c:'g'}
+,{cr:'c',t:'I',z:'      if(logout == `true)',f:'design.v',l:'156',h:'6',c:'g'}
+,{cr:'c',t:'A',z:'      if(logout == `true)',f:'design.v',l:'156',h:'801',c:'g'}
 ]},
 {anchor:'cvg7',items:[{z:'    if(logout == `true) begin',f:'design.v',l:'161',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'2',c:'g'}
-,{cr:'c',t:'A',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'2',c:'g'}
+,{cr:'c',t:'I',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'1',c:'g'}
+,{cr:'c',t:'A',z:'    if(logout == `true) begin',f:'design.v',l:'161',h:'4',c:'g'}
 ]},
-{anchor:'cvg8',items:[{z:'      if (currState != `WAITING)',f:'design.v',l:'175',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'      if (currState != `WAITING)',f:'design.v',l:'175',h:'1077',c:'g'}
-,{cr:'c',t:'E',z:'      else',f:'design.v',l:'177',h:'27',c:'g'}
+{anchor:'cvg8',items:[{z:'      if (currState != `WAITING)',f:'design.v',l:'174',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'      if (currState != `WAITING)',f:'design.v',l:'174',h:'1081',c:'g'}
+,{cr:'c',t:'E',z:'      else',f:'design.v',l:'176',h:'38',c:'g'}
 ]},
-{anchor:'cvg9',items:[{z:'      case (currState) // synopsys full_case parallel_case',f:'design.v',l:'179',c:'G',p:'100.00'}
-,{cr:'c',t:'T',z:'      `WAITING: begin',f:'design.v',l:'181',h:'27',c:'g'}
-,{cr:'c',t:'T',z:'      `BALANCE: begin',f:'design.v',l:'207',h:'200',c:'g'}
-,{cr:'c',t:'T',z:'      `WITHDRAW: begin',f:'design.v',l:'219',h:'195',c:'g'}
+{anchor:'cvg9',items:[{z:'      case (currState) // synopsys full_case parallel_case',f:'design.v',l:'178',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'      `WAITING: begin',f:'design.v',l:'180',h:'38',c:'g'}
+,{cr:'c',t:'T',z:'      `BALANCE: begin',f:'design.v',l:'207',h:'202',c:'g'}
+,{cr:'c',t:'T',z:'      `WITHDRAW: begin',f:'design.v',l:'219',h:'197',c:'g'}
 ,{cr:'c',t:'T',z:'      `WITHDRAW_SHOW_BALANCE: begin',f:'design.v',l:'231',h:'219',c:'g'}
-,{cr:'c',t:'T',z:'      `TRANSACTION: begin          ',f:'design.v',l:'247',h:'190',c:'g'}
-,{cr:'c',t:'T',z:'      `DEPOSIT:',f:'design.v',l:'267',h:'273',c:'g'}
+,{cr:'c',t:'T',z:'      `TRANSACTION: begin          ',f:'design.v',l:'247',h:'188',c:'g'}
+,{cr:'c',t:'T',z:'      `DEPOSIT:',f:'design.v',l:'267',h:'275',c:'g'}
 ]},
-{anchor:'cvg10',items:[{z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',h:'1',c:'g'}
-,{cr:'c',t:'T',z:'        else if(isAuthenticated == `false || logout == `true) begin',f:'design.v',l:'189',h:'25',c:'g'}
-,{cr:'c',t:'A',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'182',h:'1',c:'g'}
+{anchor:'cvg10',items:[{z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'181',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'181',h:'1',c:'g'}
+,{cr:'c',t:'T',z:'        else if(isAuthenticated == `false || logout == `true) begin',f:'design.v',l:'188',h:'22',c:'g'}
+,{cr:'c',t:'A',z:'        if (isAuthenticated == `true && logout == `false) begin',f:'design.v',l:'181',h:'15',c:'g'}
 ]},
 {anchor:'cvg11',items:[{z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',h:'93',c:'g'}
-,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'225',h:'102',c:'g'}
+,{cr:'c',t:'I',z:'          if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'220',h:'89',c:'g'}
+,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'225',h:'108',c:'g'}
 ]},
 {anchor:'cvg12',items:[{z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',h:'115',c:'g'}
-,{cr:'c',t:'E',z:'            else begin',f:'design.v',l:'241',h:'104',c:'g'}
+,{cr:'c',t:'I',z:'            if (amount <= balance_database[accIndex]) begin',f:'design.v',l:'232',h:'120',c:'g'}
+,{cr:'c',t:'E',z:'            else begin',f:'design.v',l:'241',h:'99',c:'g'}
 ]},
 {anchor:'cvg13',items:[{z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',c:'G',p:'100.00'}
-,{cr:'c',t:'I',z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',h:'33',c:'g'}
+,{cr:'c',t:'I',z:'          if ((amount <= balance_database[accIndex]) & (wasFound == `true...',f:'design.v',l:'248',h:'31',c:'g'}
 ,{cr:'c',t:'E',z:'          else begin',f:'design.v',l:'262',h:'157',c:'g'}
 ]}],
 b3:[{dummy:0},

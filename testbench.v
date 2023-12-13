@@ -97,9 +97,9 @@ module atm_tb();
     pin = 4'b0011;
     menuOption = 3;
     @(negedge clk);
-    /* #10; */
+    #10;
     // Constrained Random Verification
-    /* menuOption = `WAITING;
+    menuOption = `WAITING;
     accNumber = 12'd3467;
     pin = 4'b1000;
 
@@ -119,7 +119,7 @@ module atm_tb();
       else
         menuOption = `BALANCE;
       @(negedge clk);
-    end */
+    end
     #20 $stop();
    end
   //psl Deposit_Check: assert always((menuOption==`DEPOSIT)->next(balance==( prev(balance) + prev(amount) ) ) ) @(posedge clk);

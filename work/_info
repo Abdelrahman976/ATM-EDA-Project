@@ -13,64 +13,61 @@ T_opt
 VD^=jcM]T9M@YZBT?=;zSL0
 Z1 04 6 4 work atm_tb fast 0
 =1-7cd30a82d8a1-65727fb9-229-2ad0
-Z2 o-quiet -auto_acc_if_foreign -work work
-Z3 tCvgOpt 0
+o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
 n@_opt
-Z4 OL;O;10.6c;65
+Z3 OL;O;10.6c;65
 R0
 T_opt1
-!s110 1700436760
-VkVWB_8FQf[25DH0End4Eh1
-04 3 7 work ATM fast__1 0
+!s110 1702505566
+VS>R7gAg5YED_fzf`TI[Wj0
 R1
-04 14 4 work authentication fast 0
-04 5 4 work timer fast 0
-=1-7cd30a82d8a1-655a9b18-208-3e18
+=1-7cd30a82d8a1-657a2c5e-154-3160
+Z4 o-quiet -auto_acc_if_foreign -work work +acc
 R2
-R3
 n@_opt1
-R4
-R0
+R3
 T_opt2
 !s110 1702498977
 VN9RRH7VV@S0VW^Hz63NQS2
 R1
 =1-7cd30a82d8a1-657a12a1-1fc-4ed0
-o-quiet -auto_acc_if_foreign -work work +acc
-R3
-n@_opt2
 R4
+R2
+n@_opt2
+R3
+R0
 vATM
-Z5 !s110 1702498974
+Z5 !s110 1702505565
 !i10b 1
-!s100 ROMEPoHdC=jRPd[ZGT]9R1
-I4oj6FoA2?`Q``b1E1@mc70
+!s100 ]_44CV[h:39ViBV_[bEQE1
+IiZ0VA;OYo53=LMX9USh=Y3
 Z6 VDg1SIo80bB@j0V0VzS_@n1
 Z7 dC:/Users/liona/Documents/VS Code/EDA Project
-Z8 w1702498968
+Z8 w1702505558
 Z9 8design.v
 Z10 Fdesign.v
-L0 86
+L0 89
 Z11 OL;L;10.6c;65
 r1
 !s85 0
 31
-Z12 !s108 1702498974.000000
+Z12 !s108 1702505565.000000
 Z13 !s107 testbench.v|design.v|
 Z14 !s90 -reportprogress|300|design.v|testbench.v|+cover|
 !i113 0
 Z15 !s102 +cover
 Z16 o+cover -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R3
+R2
 n@a@t@m
 vatm_tb
 R5
 !i10b 1
-!s100 ^ogcZXlkTYOC34W6JFiMi3
-I`aMEFeV4hCkcCI07?UFnn0
+!s100 `n`T;>c44dlfLZGL>OHYA0
+I4mL^fDceVWcCneVm<[oib2
 R6
 R7
-w1702498879
+w1702503288
 8testbench.v
 Ftestbench.v
 Z17 L0 20
@@ -84,12 +81,12 @@ R14
 !i113 0
 R15
 R16
-R3
+R2
 vauthentication
 R5
 !i10b 1
-!s100 JQzlDe;ANB`DGQ0@`23z=0
-Ih]:=gDJEW:1ZlCVS7h1`:0
+!s100 0:R4]kaOmNoB[afRT^@^R0
+ISTVCWY^0gZ?z:7?]IG:H81
 R6
 R7
 R8
@@ -106,7 +103,7 @@ R14
 !i113 0
 R15
 R16
-R3
+R2
 vtimer
 !s110 1700439115
 !i10b 1
@@ -127,4 +124,4 @@ r1
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/liona/Documents/VS Code/EDA Project/design.v|
 !i113 0
 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R3
+R2

@@ -25,8 +25,6 @@ module authentication(
   output reg  wasSuccessful,
   output reg [3:0] accIndex
 );
-
-
   reg [11:0] acc_database [0:9];
   reg [3:0] pin_database [0:9];
 
