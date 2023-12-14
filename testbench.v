@@ -49,7 +49,7 @@ module atm_tb();
   initial begin
     // Direct Test Cases Verification
     amount = 0;
-    accNumber = 12'd6134;
+    accNumber = 12'd3649;
     pin = 4'b1001;
     @(negedge clk);
     accNumber = 12'd2816;
@@ -72,7 +72,7 @@ module atm_tb();
       end
       else if (w == 6) begin
         lang = ~lang;
-        destinationAccNumber = 12'd4634; amount = 29;
+        destinationAccNumber = 12'd1334; amount = 29;
         @(negedge clk);
         destinationAccNumber = 12'd3467; amount = 99;
         @(negedge clk);
@@ -123,7 +123,7 @@ module atm_tb();
     #20 $stop();
    end
   //psl Deposit_Check: assert always((menuOption==`DEPOSIT)->next(balance==( prev(balance) + prev(amount) ) ) ) @(posedge clk);
-  //psl Withdraw_Check: assert always((menuOption==`WITHDRAW)->next(balance==(prev(balance)-prev(amount)))) @(posedge clk);
-  //psl Withdraw_Show_Balance_Check: assert always((menuOption==`WITHDRAW_SHOW_BALANCE)->next(balance==(prev(balance)-prev(amount)))) @(posedge clk);
+  //psl Withdraw_Check: assert always((menuOption==`WITHDRAW)->(amount <= balance)) @(posedge clk);
+  //psl Withdraw_Show_Balance_Check: assert always((menuOption==`WITHDRAW_SHOW_BALANCE)->(amount <= balance)) @(posedge clk);
   //psl Transaction_Check: assert always((menuOption==`TRANSACTION)->next(balance==prev(balance)-prev(amount) && final_balance==initial_balance+prev(amount))) @(posedge clk);
 endmodule

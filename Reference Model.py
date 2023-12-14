@@ -41,16 +41,16 @@ class ATM:
         print(LANGUAGES[lang]['welcome'])
         self.balance = balance
         self.users = {
-            '2749': {'pin': 0, 'balance': 500},
-            '2175': {'pin': 1, 'balance': 500},
-            '2429': {'pin': 2, 'balance': 500},
-            '2125': {'pin': 3, 'balance': 500},
-            '2178': {'pin': 4, 'balance': 500},
-            '2647': {'pin': 5, 'balance': 500},
+            '4023': {'pin': 0, 'balance': 500},
+            '4000': {'pin': 1, 'balance': 500},
+            '3993': {'pin': 2, 'balance': 500},
+            '3467': {'pin': 3, 'balance': 500},
+            '3100': {'pin': 4, 'balance': 500},
+            '2937': {'pin': 5, 'balance': 500},
             '2816': {'pin': 6, 'balance': 500},
-            '2910': {'pin': 7, 'balance': 500},
-            '2299': {'pin': 8, 'balance': 500},
-            '2689': {'pin': 9, 'balance': 500}
+            '2429': {'pin': 7, 'balance': 500},
+            '1697': {'pin': 8, 'balance': 500},
+            '1392': {'pin': 9, 'balance': 500}
         }
         self.current_user = None
         self.lang = lang
@@ -79,7 +79,7 @@ class ATM:
         return str(LANGUAGES[self.lang]['balance']) + str(self.users[self.current_user]['balance'])
 
     def wasFound(self, dest):
-        return self.users[dest] is not None
+        return self.users.get(str(dest)) is not None
 
     def deposit(self, amount):
         self.users[self.current_user]['balance'] += amount
@@ -100,10 +100,10 @@ class ATM:
             return LANGUAGES[self.lang]['withdraw_with_balance'] + str(self.users[self.current_user]['balance'])
 
     def transaction(self, amount, dest):
-        if amount > self.users[self.current_user]['balance']:
-            return LANGUAGES[self.lang]['insufficient_funds']
-        elif not self.wasFound(str(dest)):
+        if not self.wasFound(str(dest)):
             return LANGUAGES[self.lang]['account_not_found']
+        elif amount > self.users[self.current_user]['balance']:
+            return LANGUAGES[self.lang]['insufficient_funds']
         else:
             self.users[self.current_user]['balance'] -= amount
             self.users[str(dest)]['balance'] += amount
