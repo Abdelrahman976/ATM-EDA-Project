@@ -54,7 +54,7 @@ class ATM:
         }
         self.current_user = None
         self.lang = lang
-        self.idle_timeout = 8  # 8 Seconds
+        self.idle_timeout = 25  # 25 Seconds
         self.last_activity_time = time.time()
 
     def is_authentic(self, accountNum, pin):

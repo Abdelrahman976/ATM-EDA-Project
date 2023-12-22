@@ -49,39 +49,39 @@ module atm_tb();
   initial begin
     // Direct Test Cases Verification
     amount = 0;
-    accNumber = 12'd3649;
+    accNumber = 12'd3649; // Wrong Acc Number or Pin
     pin = 4'b1001;
     @(negedge clk);
-    accNumber = 12'd2816;
+    accNumber = 12'd2816; // Login with correct Acc Number and Pin
     pin = 4'b0110;
     menuOption = `WAITING;
     lang = `english;
 
     for(w = 3; w < 8; w = w + 1)begin
       menuOption = w;
-      if (w == 3)begin
+      if (w == `BALANCE)begin // Curr State = Balance
         @(negedge clk);
       end
-      else if (w == 4 || w == 5) begin
+      else if (w == `WITHDRAW || w == `WITHDRAW_SHOW_BALANCE) begin
         amount = 50;
         @(negedge clk);
         amount = 62;
         @(negedge clk);
-        amount = 505;
+        amount = 505; // Assertion Fired Twice From W/WS (Amount Bigger Than Account's Balance)
         @(negedge clk);
       end
-      else if (w == 6) begin
+      else if (w == `TRANSACTION) begin
         lang = ~lang;
-        destinationAccNumber = 12'd1334; amount = 29;
+        destinationAccNumber = 12'd1334; amount = 29; // Assertion Fired (Wrong Destination Acc Number)
         @(negedge clk);
         destinationAccNumber = 12'd3467; amount = 99;
         @(negedge clk);
         amount = 73;
         @(negedge clk);
-        amount = 503;
+        amount = 503; // Assertion Fired (Amount Bigger Than Account's Balance)
         @(negedge clk);
       end
-      else if (w == 7) begin
+      else if (w == `DEPOSIT) begin
         lang = ~lang;
         amount = 429;
         @(negedge clk);
@@ -91,18 +91,25 @@ module atm_tb();
     end
     amount = 0;
     // For Testing Timer
-    #1020;
+      #1020;
     //////////////////////////////
+    menuOption = 3;
+    @(negedge clk);
     accNumber = 12'd3467;
     pin = 4'b0011;
     menuOption = 3;
     @(negedge clk);
     #10;
+
+    //--------------------------------------------------------
+
     // Constrained Random Verification
     menuOption = `WAITING;
     accNumber = 12'd3467;
     pin = 4'b1000;
-
+    @(negedge clk);
+    accNumber = 12'd2816;
+    pin = 4'b0110;
     @(negedge clk);
     for(i = 0; i < 1000;i = i + 1)begin
       if (i != 0) begin
@@ -122,7 +129,7 @@ module atm_tb();
     end
     #20 $stop();
    end
-  //psl Deposit_Check: assert always((menuOption==`DEPOSIT)->next(balance==( prev(balance) + prev(amount) ) ) ) @(posedge clk);
+  //psl Deposit_Check: assert always((menuOption==`DEPOSIT)->next(balance==( prev(balance) + prev(amount)))) @(posedge clk);
   //psl Withdraw_Check: assert always((menuOption==`WITHDRAW)->(amount <= balance)) @(posedge clk);
   //psl Withdraw_Show_Balance_Check: assert always((menuOption==`WITHDRAW_SHOW_BALANCE)->(amount <= balance)) @(posedge clk);
   //psl Transaction_Check: assert always((menuOption==`TRANSACTION)->next(balance==prev(balance)-prev(amount) && final_balance==initial_balance+prev(amount))) @(posedge clk);

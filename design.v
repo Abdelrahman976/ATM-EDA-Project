@@ -141,6 +141,7 @@ module ATM(
         // else begin
         //   $display("Timeout limit exceeded. Please try again later");
         // end
+        balance = 0;
         currState = `WAITING;
         deAuth = `true;
         logout = `true;
@@ -148,7 +149,7 @@ module ATM(
    end
 
    always @(menuOption) begin
-      counter = 0;
+      counter = 0; // Reset Timer
       balance = balance_database[accIndex];
       currState = menuOption;
       if(logout == `true)
@@ -196,7 +197,7 @@ module ATM(
           //   else
           // 	  $display("Account number or password was incorrect");
           // end
-          counter = 0;
+          counter = 0; // Reset Timer
           currState = `WAITING;
         end
       end
@@ -243,7 +244,7 @@ module ATM(
 
 
       `TRANSACTION: begin          
-          if ((amount <= balance_database[accIndex]) & (wasFound == `true) & (balance_database[accIndex] + amount < 2048)) begin
+          if ((amount <= balance_database[accIndex]) & (wasFound == `true) & (balance_database[destinationAccIndex] + amount < 2048)) begin
               initial_balance = balance_database[destinationAccIndex];
               currState = `MENU;
               balance_database[destinationAccIndex] = balance_database[destinationAccIndex] + amount;
@@ -270,6 +271,7 @@ module ATM(
             //   $display("The deposited amount is %d", amount);
             balance_database[accIndex] = balance_database[accIndex] + amount;
             balance = balance_database[accIndex];
+            currState = `MENU;
             // if( lang == `english )
             //   $display("Account %d has balance %d after depositing %d", accNumber, balance_database[accIndex], amount);
             // else
